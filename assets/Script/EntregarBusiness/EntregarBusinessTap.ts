@@ -40,7 +40,7 @@ export class EntregarBusinessTap extends BaseTap {
 
     public currentHand:cc.Node;
     public currentHandCount:number = 0;
-    private lost:boolean = false;
+    private endGame:boolean = false;
 
     private startHandTime:number = 0;
     private intermissionTime:number = 0.5;
@@ -60,13 +60,13 @@ export class EntregarBusinessTap extends BaseTap {
     }
 
     update(dt) {
-      if (this.currentHandCount > this.totalHands || this.lost) return;
+      if (this.currentHandCount > this.totalHands || this.endGame) return;
       this.startHandTime += dt;
       if (this.currentHand != null) {
         if (this.startHandTime > this.timePerHand) {
           console.log("Deu o tempo da mão");
           if (this.currentHand == this.handOpen) {
-            this.handLost();
+            this.loseGame();
           } else {
             this.intermissionTime = 0.5;
             this.nextHand();
@@ -90,6 +90,10 @@ export class EntregarBusinessTap extends BaseTap {
       } else {
         this.currentHand = this.handClose;
         this._handCloseAnimation.play("MaoFechadaEnter");
+      }
+
+      if (this.currentHandCount > this.totalHands) {
+        this.winGame();
       }
 
       this.startHandTime = 0;
@@ -117,10 +121,15 @@ export class EntregarBusinessTap extends BaseTap {
 
     }
 
-    handLost() {
+    loseGame() {
       console.log("Perdeu");
-      this.lost = true;
+      this.endGame = true;
       //Lose
+    }
+
+    winGame() {
+      console.log("Ganhou");
+      this.endGame = true;
     }
 
     // update (dt) {}
