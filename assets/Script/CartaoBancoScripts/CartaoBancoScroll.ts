@@ -16,7 +16,7 @@ import { CartaoBancoSwipe } from './CartaoBancoSwipe'
 export class CartaoBancoScroll extends cc.Component {
 
     @property()
-    public scrollSpeed:number = 20;
+    public scrollSpeed:number = 420;
 
     @property(cc.Node)
     public link:cc.Node;
