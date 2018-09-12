@@ -1,0 +1,41 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "MaoAbertaLeave",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.3333333333333333,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "paths": {
+      "mao_aberta": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                0,
+                -150
+              ],
+              "curve": [
+                0.10053191489361704,
+                0.6058510638297872,
+                0.40301418439716313,
+                0.8994680851063829
+              ]
+            },
+            {
+              "frame": 0.3333333333333333,
+              "value": [
+                0,
+                188
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": []
+}
