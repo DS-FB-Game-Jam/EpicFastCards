@@ -1,9 +1,53 @@
 {
   "__type__": "cc.AnimationClip",
-  "_name": "",
+  "_name": "MaquinaCartaoIddle",
   "_objFlags": 0,
+  "_native": "",
   "_duration": 0,
   "sample": 60,
-  "curveData": {},
+  "speed": 1,
+  "wrapMode": "2",
+  "curveData": {
+    "paths": {
+      "DisplayText": {
+        "comps": {
+          "cc.Label": {
+            "string": [
+              {
+                "frame": 0,
+                "value": "$9,99"
+              }
+            ],
+            "fontSize": [
+              {
+                "frame": 0,
+                "value": 14
+              }
+            ]
+          }
+        },
+        "props": {
+          "color": [
+            {
+              "frame": 0,
+              "value": {
+                "__type__": "cc.Color",
+                "r": 37,
+                "g": 94,
+                "b": 26,
+                "a": 255
+              }
+            }
+          ],
+          "opacity": [
+            {
+              "frame": 0,
+              "value": 255
+            }
+          ]
+        }
+      }
+    }
+  },
   "events": []
 }
