@@ -9,24 +9,21 @@
 //  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/life-cycle-callbacks.html
 
 const {ccclass, property} = cc._decorator;
+import { BaseTap } from '../Tap/BaseTap'
+
 
 @ccclass
-export class BaseTap extends cc.Component {
-
+export class EntregarBusinessTap extends BaseTap {
     // LIFE-CYCLE CALLBACKS:
 
     // onLoad () {}
 
-    public hasTapped:boolean = false;
-
     start () {
-      this.node.on('touchend', function (event:cc.Event.EventTouch) {
-        this.tapped(event.getTouches()[0].getLocation());
-
-      }, this);
+      super.start();
     }
 
-    tapped(location:cc.Vec2) {/* abstract?! */}
+    tapped(location:cc.Vec2) {
+    }
 
     // update (dt) {}
 }
