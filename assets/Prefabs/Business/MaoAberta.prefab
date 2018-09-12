@@ -114,7 +114,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 188,
+      "y": -150,
       "z": 0
     },
     "_scale": {
@@ -164,7 +164,7 @@
     "_isTrimmedMode": true,
     "_state": 0,
     "_atlas": null,
-    "_id": "74Vaqfl8xM2onQxdaQd0Jl"
+    "_id": "23nx7LOqRHaazBuZsSNbK+"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -203,7 +203,7 @@
       }
     ],
     "playOnLoad": true,
-    "_id": "b0aEhQxc9Dk7z9i2aKzXh5"
+    "_id": "2b4hb9jvVGmpd0kmPXo1EM"
   },
   {
     "__type__": "cc.PrefabInfo",
