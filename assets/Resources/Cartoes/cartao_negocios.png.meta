@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "aa995693-9586-4309-a35e-9ab1bb469eef",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "cartao_negocios": {
+      "ver": "1.0.3",
+      "uuid": "ef2582e0-ecb4-43d0-9fca-aae16f1684cf",
+      "rawTextureUuid": "aa995693-9586-4309-a35e-9ab1bb469eef",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 652,
+      "height": 342,
+      "rawWidth": 652,
+      "rawHeight": 342,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
