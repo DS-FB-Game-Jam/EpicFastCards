@@ -21,6 +21,9 @@ export class CartaoBancoScroll extends cc.Component {
     @property(cc.Node)
     public link:cc.Node;
 
+    @property()
+    public correctCard:boolean = false;
+    
     private _cartaoBancoSwipe:CartaoBancoSwipe;
     private minThreshold:number;
     private maxThreshold:number;
@@ -28,7 +31,6 @@ export class CartaoBancoScroll extends cc.Component {
 
     public working:boolean = true;
     public inPosition:boolean = false;
-    public correctCard:boolean = false;
 
     start () {
       this._cartaoBancoSwipe = this.node.parent.parent.getComponent(CartaoBancoSwipe);
@@ -49,8 +51,8 @@ export class CartaoBancoScroll extends cc.Component {
 
         this.node.setPosition(newx, this.node.position.y);
       } else {
-        if (this.node.position.y < 50) {
-          this.node.setPosition(0, (this.node.position.y+(this.scrollSpeed*3*dt)));
+        if (this.node.position.y < -80) {
+          this.node.setPosition(0, (this.node.position.y+(this.scrollSpeed*2*dt)));
         }
       }
     }
