@@ -117,6 +117,7 @@ export class EntregarBusinessTap extends BaseTap {
         this.nextHand();
       } else {
         this._handCloseAnimation.play("MaoFechadaGetCard");
+        this.loseGame();
       }
 
     }
