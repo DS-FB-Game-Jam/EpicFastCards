@@ -1,0 +1,155 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "BusinessCardDeliver",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.5,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "paths": {
+      "Card1": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                1.7,
+                -0.2
+              ],
+              "curve": [
+                0.5393617021276595,
+                0.14929078014184394,
+                0.8462765957446808,
+                0.5359929078014185
+              ]
+            },
+            {
+              "frame": 0.25,
+              "value": [
+                -101.5,
+                -24.6
+              ]
+            },
+            {
+              "frame": 0.26666666666666666,
+              "value": [
+                0.4,
+                -14.6
+              ]
+            },
+            {
+              "frame": 0.5,
+              "value": [
+                1.7,
+                -0.2
+              ]
+            }
+          ],
+          "rotation": [
+            {
+              "frame": 0,
+              "value": -31
+            },
+            {
+              "frame": 0.25,
+              "value": -31
+            },
+            {
+              "frame": 0.26666666666666666,
+              "value": -21
+            },
+            {
+              "frame": 0.5,
+              "value": -31
+            }
+          ]
+        }
+      },
+      "Card2": {
+        "props": {
+          "position": [
+            {
+              "frame": 0.25,
+              "value": [
+                0.4,
+                -14.6
+              ]
+            },
+            {
+              "frame": 0.26666666666666666,
+              "value": [
+                -5.1,
+                -28.5
+              ]
+            },
+            {
+              "frame": 0.5,
+              "value": [
+                0.4,
+                -14.6
+              ]
+            }
+          ],
+          "rotation": [
+            {
+              "frame": 0.25,
+              "value": -21
+            },
+            {
+              "frame": 0.26666666666666666,
+              "value": -12
+            },
+            {
+              "frame": 0.5,
+              "value": -21
+            }
+          ]
+        }
+      },
+      "Card3": {
+        "props": {
+          "position": [
+            {
+              "frame": 0.25,
+              "value": [
+                -5.1,
+                -28.5
+              ]
+            },
+            {
+              "frame": 0.26666666666666666,
+              "value": [
+                -104.5,
+                -49.6
+              ]
+            },
+            {
+              "frame": 0.5,
+              "value": [
+                -5.1,
+                -28.5
+              ]
+            }
+          ],
+          "rotation": [
+            {
+              "frame": 0.25,
+              "value": -12
+            },
+            {
+              "frame": 0.26666666666666666,
+              "value": -12
+            },
+            {
+              "frame": 0.5,
+              "value": -12
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": []
+}

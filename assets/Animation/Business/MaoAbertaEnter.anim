@@ -1,0 +1,41 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "MaoAbertaEnter",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.3333333333333333,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "paths": {
+      "mao_aberta": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                0,
+                188
+              ],
+              "curve": [
+                0.09166666666666669,
+                0.5171985815602836,
+                0.500531914893617,
+                0.926063829787234
+              ]
+            },
+            {
+              "frame": 0.3333333333333333,
+              "value": [
+                0,
+                -150
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": []
+}
