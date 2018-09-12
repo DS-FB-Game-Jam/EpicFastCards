@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "dc4e75b2-ed35-4e45-af60-c04f578cf1b7",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "maquina_cartao_cima": {
+      "ver": "1.0.3",
+      "uuid": "29c85bcd-cfad-45ba-b617-778cbdd5d22e",
+      "rawTextureUuid": "dc4e75b2-ed35-4e45-af60-c04f578cf1b7",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 519,
+      "height": 973,
+      "rawWidth": 519,
+      "rawHeight": 973,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

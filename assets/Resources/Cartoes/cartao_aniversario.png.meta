@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "919f5f23-016f-4e12-8125-ad9a23cfb4c3",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "cartao_aniversario": {
+      "ver": "1.0.3",
+      "uuid": "e9ff2ecb-e1e0-4cee-b17c-006215556712",
+      "rawTextureUuid": "919f5f23-016f-4e12-8125-ad9a23cfb4c3",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 366,
+      "height": 512,
+      "rawWidth": 366,
+      "rawHeight": 512,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
