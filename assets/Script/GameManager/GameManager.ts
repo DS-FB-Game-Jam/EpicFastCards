@@ -123,8 +123,9 @@ export class GameManager extends cc.Component {
       let size = this._levels.length;
 
       for(;;) {
-        let i = Math.round(Math.random() * (size-1));
+        let i = Math.floor(Math.random() * size);
         let level = this._levels[i];
+        if(!level) continue;
         if(level != this._lastLevel) {
           this._lastLevel = level;
           console.log("loading", level);

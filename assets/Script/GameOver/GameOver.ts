@@ -17,6 +17,9 @@ export default class GameOver extends BaseSwipe {
      @property(cc.Label)
     labelScore: cc.Label = null;
 
+    @property(cc.Label)
+    labelShare: cc.Label = null;
+
      @property()
     public minThreshold:number = -20;
     @property()
@@ -28,6 +31,7 @@ export default class GameOver extends BaseSwipe {
     // LIFE-CYCLE CALLBACKS:
 
     private fbInstant: any;
+    private fbInfo: any;
 
     // onLoad () {}
 
@@ -45,6 +49,7 @@ export default class GameOver extends BaseSwipe {
     setInfo() {
       this.info = this._gm.getProgressInfo();
       this.labelScore.string = ""+this.info.score;
+      this.getFBInfo();
       this.postScore(this.info.score);
     }
 
@@ -55,6 +60,24 @@ export default class GameOver extends BaseSwipe {
           this.swipped = true;
           this._gm.restartGame();
         // }
+      }
+    }
+
+    getFBInfo() {
+      if (!this.fbInstant) return;
+
+      this.fbInfo = {
+          contextID: this.fbInstant.context.getID(),
+          contextType: this.fbInstant.context.getType(),
+          locale: this.fbInstant.getLocale(),
+          platform: this.fbInstant.getPlatform(),
+          sdkVersion: this.fbInstant.getSDKVersion(),
+      }
+      console.log(this.fbInfo);
+      if(this.fbInfo.contextType != "SOLO") {
+        this.labelShare.string = "DESAFIAR";
+      } else {
+        this.labelShare.string = "COMPARTILHAR";
       }
     }
 
@@ -94,22 +117,26 @@ export default class GameOver extends BaseSwipe {
 
     share() {
       console.log("share");
-      // if (!this.fbInstant) return;
+      if (!this.fbInstant) return;
+
+      if(this.fbInfo.contextType == "SOLO") {
+        this.fbInstant.shareAsync({
+              intent: 'CHALLENGE',
+              image: this.getImageBase64(),
+              text: 'Fiz '+this.info.score+" pontos, você consegue me superar?",
+              data: {myReplayData: '...'},
+          }).then(() => {
+              // continue with the game.
+              console.log("yaaaay");
+          }, (e) => {
+            console.log("error?", e);
+          });
+      } else {
+        this.shareHighscore();
+      }
 
       // console.log("fbInstant loaded");
 
-      // this.fbInstant.shareAsync({
-      //       intent: 'CHALLENGE',
-      //       image: this.getImageBase64(),
-      //       text: 'Fiz '+this.info.score+" pontos, você consegue me superar?",
-      //       data: {myReplayData: '...'},
-      //   }).then(() => {
-      //       // continue with the game.
-      //       console.log("yaaaay");
-      //   }, (e) => {
-      //     console.log("error?", e);
-      //   });
-      this.shareHighscore();
     }
 
     shareHighscore() {
@@ -119,7 +146,10 @@ export default class GameOver extends BaseSwipe {
         action: 'LEADERBOARD',
         name: 'leaderboard'
       })
-      .then(() => console.log('Update Posted'))
+      .then(() => {
+        console.log('Update Posted');
+        this.labelShare.string = "DESAFIADO";
+      })
       .catch(error => console.error(error));
     }
 
