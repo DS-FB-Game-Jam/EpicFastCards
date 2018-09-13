@@ -113,6 +113,7 @@ export class EntregarBusinessTap extends BaseTap {
       this.updateTimer();
       if (this.levelTime > this.totalTime) {
         console.log("timeout", this.levelTime);
+        if (this.currentHand == this.handOpen) this.deliver();
         this.timeout.play();
         this.winGame();
         return;
@@ -154,10 +155,10 @@ export class EntregarBusinessTap extends BaseTap {
         this._handCloseAnimation.play("MaoFechadaEnter");
       }
 
-      if (this.currentHandCount >= this.totalHands) {
-        console.log("choseHand > total");
-        this.winGame();
-      }
+      // if (this.currentHandCount >= this.totalHands) {
+      //   console.log("choseHand > total");
+      //   this.winGame();
+      // }
 
       this.startHandTime = 0;
 
@@ -180,10 +181,7 @@ export class EntregarBusinessTap extends BaseTap {
       if (!this.currentHand || this.endGame) return;
 
       if (this.currentHand == this.handOpen) {
-        this._businessCardsAnimation.play("BusinessCardDeliver");
-        this.card.active = true;
-        this.intermissionTime = 0.5;
-        this.success.play();
+        this.deliver();
         this.nextHand();
       } else {
         this._handCloseAnimation.play("MaoFechadaGetCard");
@@ -192,6 +190,13 @@ export class EntregarBusinessTap extends BaseTap {
         this.loseGame();
       }
 
+    }
+
+    deliver() {
+      this._businessCardsAnimation.play("BusinessCardDeliver");
+      this.card.active = true;
+      this.intermissionTime = 0.5;
+      this.success.play();
     }
 
     loseGame() {
