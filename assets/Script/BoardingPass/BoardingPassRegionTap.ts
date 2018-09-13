@@ -36,35 +36,38 @@ export default class BoardingPassRegionTap extends RegionTap {
     public fail:cc.AudioSource = null;
 
 
-    public boardingPasses:string[] = ["BoardingCard1", "BoardingCard2", "BoardingCard3", "BoardingCard4"];
+    public boardingPasses:string[] = ["boardingCard1", "boardingCard2", "boardingCard3", "boardingCard4"];
     public invalidTimes:any = {
-      "BoardingCard1": ["13:00", "15:00", "17:00"],
-      "BoardingCard2": ["13:00", "15:00", "17:00"],
-      "BoardingCard3": ["22:00", "23:00", "22:30"],
-      "BoardingCard4": ["15:00", "10:00", "19:00"],
+      "boardingCard1": ["13:00", "15:00", "17:00"],
+      "boardingCard2": ["13:00", "15:00", "17:00"],
+      "boardingCard3": ["22:00", "23:00", "22:30"],
+      "boardingCard4": ["15:00", "10:00", "19:00"],
     }
     public validTimes:any = {
-      "BoardingCard1": ["8:00", "11:59", "12:00", "9:30"],
-      "BoardingCard2": ["8:00", "11:59", "12:00", "9:30"],
-      "BoardingCard3": ["21:00", "20:00", "18:40", "21:30"],
-      "BoardingCard4": ["8:00", "6:00", "7:30", "6:30"],
+      "boardingCard1": ["8:00", "11:59", "12:00", "9:30"],
+      "boardingCard2": ["8:00", "11:59", "12:00", "9:30"],
+      "boardingCard3": ["21:00", "20:00", "18:40", "21:30"],
+      "boardingCard4": ["8:00", "6:00", "7:30", "6:30"],
     }
     public gate:any = {
-      "BoardingCard1": "GateA",
-      "BoardingCard2": "GateF",
-      "BoardingCard3": "GateF",
-      "BoardingCard4": "GateA",
+      "boardingCard1": "GateA",
+      "boardingCard2": "GateF",
+      "boardingCard3": "GateF",
+      "boardingCard4": "GateA",
     }
 
     @property(cc.Label)
     public timeLabel:cc.Label = null;
 
     @property(cc.Node)
+    public plane:cc.Node = null;
+
+    @property(cc.Node)
     public losePrefab:cc.Node = null;
     @property(cc.Node)
     public timer:cc.Node = null;
 
-    private selectedCard:string = "BoardingCard1";
+    private selectedCard:string = "boardingCard1";
     private validTime:boolean = false;
     private cardAnimation:cc.Animation = null;
 
@@ -115,10 +118,14 @@ export default class BoardingPassRegionTap extends RegionTap {
     }
 
     registerTap(region:string) {
+      if (this.endGame) return;
       if (this.validTime) {
         if (region == this.gate[this.selectedCard]) {
           this.success.play();
           this.winGame();
+        } else {
+          this.fail.play();
+          this.loseGame();
         }
       } else {
         this.fail.play();
@@ -158,6 +165,7 @@ export default class BoardingPassRegionTap extends RegionTap {
       console.log("LoseGame");
       this.endGame = true;
       this.win.play();
+      this.plane.getComponent(cc.Animation).play("PlaneFly");
       
       if (!this._gm) return;
       let gm = this._gm;
