@@ -11,16 +11,27 @@
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class NewClass extends cc.Component {
+export default class GetReady extends cc.Component {
 
-    @property(cc.Label)
-    labelScore: cc.Label = null;
+    // @property(cc.Label)
+    // labelScore: cc.Label = null;
 
-    @property(cc.Label)
-    labelHP: cc.Label = null;
+    // @property(cc.Label)
+    // labelHP: cc.Label = null;
 
-    @property(cc.Label)
-    labelTimer: cc.Label = null;
+    @property(cc.Node)
+    char: cc.Node = null;
+    private _charAnimation: cc.Animation = null;
+
+    @property(cc.Node)
+    disquete1: cc.Node = null;
+    private _disquete1Animation: cc.Animation = null;
+    @property(cc.Node)
+    disquete2: cc.Node = null;
+    private _disquete2Animation: cc.Animation = null;
+    @property(cc.Node)
+    disquete3: cc.Node = null;
+    private _disquete3Animation: cc.Animation = null;
 
     private _gm;
     private _countDownMax:number = 2;
@@ -32,24 +43,54 @@ export default class NewClass extends cc.Component {
 
     start () {
       this._gm = cc.find("GameManager").getComponent("GameManager");
+      this._charAnimation = this.char.getComponent(cc.Animation);
+      this._disquete1Animation = this.disquete1.getComponent(cc.Animation);
+      this._disquete2Animation = this.disquete2.getComponent(cc.Animation);
+      this._disquete3Animation = this.disquete3.getComponent(cc.Animation);
       this.setInfo();
-      this._countDown = this._countDownMax
+      this._countDown = this._countDownMax;
     }
 
     setInfo() {
       let info = this._gm.getProgressInfo();
-      this.labelScore.string = "Score: "+info.score;
-      this.labelHP.string = "HP: "+info.hp;
+      // this.labelScore.string = "Score: "+info.score;
+      // this.labelHP.string = "HP: "+info.hp;
+      if (info.lost) {
+        this._charAnimation.play("CharMad");
+      }
+      this._disquete1Animation.play("DisqueteInteiroIddle");
+      if (info.hp == 1) {
+        if (info.lost){
+          this._disquete2Animation.play("DisqueteQuebrando");
+          this._disquete3Animation.play("DisqueteShatteredIddle");
+        } else {
+          this._disquete2Animation.play("DisqueteShatteredIddle");
+          this._disquete3Animation.play("DisqueteShatteredIddle");
+        }
+      }
+
+      if(info.hp >= 2) {
+        this._disquete2Animation.play("DiqueteInteiroIddle");
+        if (info.lost){
+          this._disquete3Animation.play("DisqueteQuebrando");
+        } else {
+          this._disquete3Animation.play("DisqueteShatteredIddle");
+        }
+      }
+
+      if(info.hp >= 3) {
+        this._disquete3Animation.play("DiqueteInteiroIddle");
+      }
     }
 
 
     update (dt) {
       if(this._countDown >= 0 ) {
         this._countDown -= dt;
-        this.labelTimer.string = ""+Math.floor(this._countDown);
+        // this.labelTimer.string = ""+Math.floor(this._countDown);
 
         if(this._countDown <= 0) {
-          this.labelTimer.string = "0";
+          // this.labelTimer.string = "0";
           this._gm.loadNextLevel();
         }
       }

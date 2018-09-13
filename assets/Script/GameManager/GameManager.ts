@@ -23,6 +23,7 @@ export class GameManager extends cc.Component {
     private _lastLevel: string;
     private _currentLevel:number = 0;
     private _currentHP:number = 3;
+    private _lost:boolean = false;
     private _currentDifficulty:number = 1;
     private _currentSessionSize:number = 3;
     private _score:number = 0;
@@ -55,6 +56,8 @@ export class GameManager extends cc.Component {
       } else {
         this._score++;
       }
+
+      this._lost = fail;
 
       if(this._currentHP <= 0) {
         this.gameOver();
@@ -89,7 +92,13 @@ export class GameManager extends cc.Component {
     }
 
     getProgressInfo() {
-      return {difficulty: this._currentDifficulty, hp: this._currentHP, score:this._score, levelTime:5};
+      return {
+        difficulty: this._currentDifficulty,
+        hp: this._currentHP,
+        score: this._score,
+        levelTime: 5,
+        lost: this._lost
+      };
     }
 
     //END

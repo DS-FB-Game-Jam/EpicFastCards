@@ -3,10 +3,10 @@
   "appSecret": "",
   "encryptJs": true,
   "excludeScenes": [
-    "7680e773-6013-4991-91da-1b385d9e64f6",
     "23b23340-b2ce-470d-9b87-43e9fdd784be",
     "2d2f792f-a40c-49bb-a189-ed176a246e49",
-    "ce42eb75-c549-41c5-8b0e-c745a78ed2d2"
+    "ce42eb75-c549-41c5-8b0e-c745a78ed2d2",
+    "6b68f8d1-7853-4ba2-b984-da0e587b1bc1"
   ],
   "fb-instant-games": {},
   "includeAnySDK": false,
@@ -30,9 +30,9 @@
     "REMOTE_SERVER_ROOT": "",
     "orientation": "portrait"
   },
-  "startScene": "ec5fa9e4-f004-42e7-9420-3c509aeb0ae1",
+  "startScene": "a5ed97f2-5a63-489b-9d72-c1a856100a4a",
   "title": "EpicFastCards",
-  "webOrientation": "auto",
+  "webOrientation": "portrait",
   "wechatgame": {
     "REMOTE_SERVER_ROOT": "",
     "appid": "wx6ac3f5090a6b99c5",
