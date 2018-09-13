@@ -38,15 +38,15 @@ export default class BoardingPassRegionTap extends RegionTap {
 
     public boardingPasses:string[] = ["boardingCard1", "boardingCard2", "boardingCard3", "boardingCard4"];
     public invalidTimes:any = {
-      "boardingCard1": ["13:00", "15:00", "17:00"],
-      "boardingCard2": ["13:00", "15:00", "17:00"],
-      "boardingCard3": ["22:00", "23:00", "22:30"],
-      "boardingCard4": ["15:00", "10:00", "19:00"],
+      "boardingCard1": ["13:00", "14:30", "15:00", "22:00"],
+      "boardingCard2": ["13:30", "18:00", "21:50", "23:30"],
+      "boardingCard3": ["22:00", "23:00", "22:30", "23:30"],
+      "boardingCard4": ["9:00", "10:00", "19:00", "15:00"],
     }
     public validTimes:any = {
-      "boardingCard1": ["8:00", "11:59", "12:00", "9:30"],
-      "boardingCard2": ["8:00", "11:59", "12:00", "9:30"],
-      "boardingCard3": ["21:00", "20:00", "18:40", "21:30"],
+      "boardingCard1": ["8:00", "11:20", "11:00", "9:30"],
+      "boardingCard2": ["6:00", "11:00", "10:00", "8:30"],
+      "boardingCard3": ["21:00", "20:00", "18:40", "12:00"],
       "boardingCard4": ["8:00", "6:00", "7:30", "6:30"],
     }
     public gate:any = {
@@ -112,7 +112,12 @@ export default class BoardingPassRegionTap extends RegionTap {
       this.updateTimer();
       if (this.levelTime > this.totalTime) {
         this.timeout.play();
-        this.loseGame();
+        if (!this.validTime) {
+          this.fail.play();
+          this.winGame();
+        } else {
+          this.loseGame();
+        }
       }
 
     }
@@ -124,11 +129,9 @@ export default class BoardingPassRegionTap extends RegionTap {
           this.success.play();
           this.winGame();
         } else {
-          this.fail.play();
           this.loseGame();
         }
       } else {
-        this.fail.play();
         this.loseGame();
       }
       // switch(region) {
