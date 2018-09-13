@@ -67,7 +67,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_localZOrder": 30,
+    "_localZOrder": 380,
     "groupIndex": 0,
     "_id": ""
   },
@@ -87,7 +87,7 @@
     "_loop": false,
     "playOnLoad": false,
     "preload": false,
-    "_id": "fbACLq3V1Pq7AV5QzrZ6bj"
+    "_id": "c5Tp1xKUpLeZC891YsmoFE"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -97,7 +97,7 @@
     "asset": {
       "__id__": 0
     },
-    "fileId": "95TK39xkxO6IYpvOUfeQbj",
+    "fileId": "08Ih63Y9NKfK0rvMFclAux",
     "sync": false
   }
 ]

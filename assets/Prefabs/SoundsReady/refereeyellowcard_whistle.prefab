@@ -67,7 +67,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_localZOrder": 18,
+    "_localZOrder": 561,
     "groupIndex": 0,
     "_id": ""
   },
@@ -80,14 +80,14 @@
     },
     "_enabled": true,
     "_clip": {
-      "__uuid__": "4e617502-545f-4486-a721-2531e5f7a7b3"
+      "__uuid__": "5591874f-dba9-43a4-9461-4ebb1dc214bd"
     },
     "_volume": 1,
     "_mute": false,
     "_loop": false,
     "playOnLoad": false,
     "preload": false,
-    "_id": "06V0lCpulBl5qb/2GaGDpY"
+    "_id": "7cFNXGiwtKC4kJv+YD0BoH"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -95,7 +95,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "14fcfa90-13bc-4186-a1a9-7bf8bf9da80c"
     },
     "fileId": "f6ot6OXf9C/YmdGNgMFL2Y",
     "sync": false
