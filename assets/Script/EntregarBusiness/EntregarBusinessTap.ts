@@ -166,7 +166,7 @@ export class EntregarBusinessTap extends BaseTap {
       if (!this._gm) return;
       let gm = this._gm;
       setTimeout(function (){
-        gm.nextLevel(false);
+        gm.nextLevel(true);
       }, 1500);
       //Lose
     }
@@ -177,7 +177,7 @@ export class EntregarBusinessTap extends BaseTap {
       if (!this._gm) return;
       let gm = this._gm;
       setTimeout(function (){
-        gm.nextLevel(true);
+        gm.nextLevel(false);
       }, 1500);
     }
 
