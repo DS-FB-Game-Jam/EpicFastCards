@@ -121,10 +121,10 @@ export class EntregarBusinessTap extends BaseTap {
         this._handCloseAnimation.play("MaoFechadaEnter");
       }
 
-      // if (this.currentHandCount > this.totalHands) {
-      //   console.log("choseHand > total");
-      //   this.winGame();
-      // }
+      if (this.currentHandCount >= this.totalHands) {
+        console.log("choseHand > total");
+        this.winGame();
+      }
 
       this.startHandTime = 0;
 

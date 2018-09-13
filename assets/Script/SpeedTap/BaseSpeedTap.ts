@@ -21,13 +21,16 @@ export class BaseSpeedTap extends cc.Component {
     start () {
       this.tapCount = 0;
 
-      this.node.on("touchend", function () {
+      this.node.on(cc.Node.EventType.TOUCH_END, function () {
 
         this.tapCount++;
-        this.hasTapped(this.tapCount, this.tapCount/this.totalTaps);
+        if (this.totalTaps != 0)
+          this.hasBaseTapped(this.tapCount, this.tapCount/this.totalTaps);
+        else
+          this.hasBaseTapped(this.tapCount, 0);
 
       }, this);
     }
 
-    hasTapped(tapCount, tapProgress) { }
+    hasBaseTapped(tapCount, tapProgress) { }
 }

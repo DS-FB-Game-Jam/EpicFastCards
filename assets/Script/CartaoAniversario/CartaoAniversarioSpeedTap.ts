@@ -43,27 +43,31 @@ export default class CartaoAniversarioSpeedTap extends BaseSpeedTap {
 
   start () {
     super.start();
-
+    this.levelTime = 0;
     if (cc.find("GameManager")) {
       this._gm = cc.find("GameManager").getComponent("GameManager");
       let progressInfo = this._gm.getProgressInfo();
       this.totalTime = progressInfo.levelTime;
+    } else {
+      this.totalTime = 5;
     }
     if (this.button)
       this._buttonAnimation = this.button.getComponent(cc.Animation);
     if (this.card)
       this._cardAnimation = this.card.getComponent(cc.Animation);
   }
+  
 
   update(dt) {
     if (this.endGame) return;
+
     this.levelTime += dt;
     if (this.levelTime > this.totalTime) {
       this.loseGame();
     }
   }
 
-  hasTapped(tapCount, progress) {
+  hasBaseTapped(tapCount, progress) {
     if (this.endGame) return;
 
     if (progress == 1) {
