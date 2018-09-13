@@ -19,6 +19,7 @@ export class GameManager extends cc.Component {
       "CartaoAniversario",
       "EntregarCartao",
       "MemoryCard",
+      "JuizCard",
     ];
     private _lastLevel: string;
     private _currentLevel:number = 0;
@@ -122,7 +123,7 @@ export class GameManager extends cc.Component {
       let size = this._levels.length;
 
       for(;;) {
-        let i = Math.floor(Math.random() * (size-1));
+        let i = Math.round(Math.random() * (size-1));
         let level = this._levels[i];
         if(level != this._lastLevel) {
           this._lastLevel = level;
