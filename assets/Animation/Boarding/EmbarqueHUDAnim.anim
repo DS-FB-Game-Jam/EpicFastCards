@@ -21,7 +21,7 @@
               "value": false
             },
             {
-              "frame": 0.43333333333333335,
+              "frame": 0.3333333333333333,
               "value": true
             },
             {
@@ -29,13 +29,13 @@
               "value": false
             },
             {
-              "frame": 0.8333333333333334,
+              "frame": 0.75,
               "value": true
             }
           ],
           "opacity": [
             {
-              "frame": 0.8333333333333334,
+              "frame": 0.75,
               "value": 255
             },
             {
