@@ -8,11 +8,6 @@
 //  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
 //  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/life-cycle-callbacks.html
 
-export enum Difficulty {
-  EASY,
-  MEDIUM,
-  HARD
-}
 
 const {ccclass, property} = cc._decorator;
 
@@ -22,11 +17,12 @@ export default class GameManager extends cc.Component {
     private _levels: string[] = [
       "CartaoBanco"
     ];
-    private _shuffledLevels: string [];
-    private _currentLevel = 0;
-    private _currentHP = 3;
-    private _currentDifficulty: Difficulty = Difficulty.EASY;
-    private _score = 0;
+    private _lastLevel: string;
+    private _currentLevel:number = 0;
+    private _currentHP:number = 3;
+    private _currentDifficulty:number = 1;
+    private _currentSessionSize:number = 3;
+    private _score:number = 0;
     // LIFE-CYCLE CALLBACKS:
 
     // onLoad () {}
@@ -46,31 +42,50 @@ export default class GameManager extends cc.Component {
     startGame() {
       console.log("startGame");
       this.resetGameValues();
-      this.loadLevel(0);
+      this.loadLevel();
     }
 
     nextLevel(fail:boolean) {
       console.log("nextLevel", fail);
-      if(fail) this._currentHP--;
+      if(fail) {
+        this._currentHP--;
+      } else {
+        this._score++;
+      }
 
       if(this._currentHP <= 0) {
         this.gameOver();
       } else {
-        this.loadNextLevel();
+        cc.director.loadScene("GetReady");
+      }
+    }
+
+    loadNextLevel() {
+      console.log("loadNextLevel", this.getProgressInfo());
+      this._currentLevel++;
+      if(this._currentLevel < this._currentSessionSize) {
+        console.log("1");
+        this.loadLevel();
+      } else {
+        console.log("2");
+        this._currentDifficulty++;
+
+        this._currentLevel = 0;
+        this.loadLevel();
       }
     }
 
     gameOver() {
       console.log("gameOver");
+      cc.director.loadScene("GameOver");
+    }
+
+    restartGame() {
       this.resetGameValues();
+      cc.director.loadScene("GameStart");
     }
 
-    updateScore(score:number) {
-      console.log("updateScore", score);
-      this._score += score;
-    }
-
-    getLevelInfo() {
+    getProgressInfo() {
       return {difficulty: this._currentDifficulty, hp: this._currentHP, score:this._score};
     }
 
@@ -82,49 +97,45 @@ export default class GameManager extends cc.Component {
       this._score = 0;
       this._currentLevel = 0;
       this._currentHP = 3;
-      this._currentDifficulty = Difficulty.EASY;
-      this.shuffleLevels();
+      this._currentDifficulty = 1;
     }
 
-    loadLevel(index:number) {
-      cc.director.loadScene(this._shuffledLevels[index]);
+    loadLevel() {
+      console.log("loadLevel");
+      let size = this._levels.length;
+
+      // for(;;) {
+        let i = Math.floor(Math.random() * size);
+        let level = this._levels[i];
+        // if(level != this._lastLevel) {
+          this._lastLevel = level;
+          console.log("loading", level);
+          cc.director.loadScene(level);
+          // break;
+        // }
+      // }
     }
 
-    loadNextLevel() {
-      this._currentLevel++;
-      if(this._currentLevel < this._shuffledLevels.length) {
-        this.loadLevel(this._currentLevel);
-      } else {
-        if(this._currentDifficulty != Difficulty.HARD) {
-          this._currentDifficulty++;
+    
 
-          this._currentLevel = 0;
-          this.shuffleLevels();
-          this.loadLevel(this._currentLevel);
-        } else {
-          cc.director.loadScene("EndGame");
-        }
-      }
-    }
+    // shuffleLevels() {
+    //   this._shuffledLevels = this.shuffleArray(this._levels);
+    // }
 
-    shuffleLevels() {
-      this._shuffledLevels = this.shuffleArray(this._levels);
-    }
+    // shuffleArray(array) {
+    //   let currentIndex = array.length, temporaryValue, randomIndex;
 
-    shuffleArray(array) {
-      let currentIndex = array.length, temporaryValue, randomIndex;
+    //   while (0 !== currentIndex) {
+    //     randomIndex = Math.floor(Math.random() * currentIndex);
+    //     currentIndex -= 1;
 
-      while (0 !== currentIndex) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
+    //     temporaryValue = array[currentIndex];
+    //     array[currentIndex] = array[randomIndex];
+    //     array[randomIndex] = temporaryValue;
+    //   }
 
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-      }
-
-      return array;
-    }
+    //   return array;
+    // }
 
      test() {
       this._currentHP = 99;
