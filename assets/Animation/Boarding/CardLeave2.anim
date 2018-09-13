@@ -1,0 +1,51 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "CardLeave2",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.5,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "paths": {
+      "boarding_pass2": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                5,
+                184
+              ],
+              "curve": [
+                0.09545454545454546,
+                0.4931818181818183,
+                0.5068181818181817,
+                0.9045454545454545
+              ]
+            },
+            {
+              "frame": 0.5,
+              "value": [
+                0,
+                0
+              ]
+            }
+          ],
+          "rotation": [
+            {
+              "frame": 0,
+              "value": 13
+            },
+            {
+              "frame": 0.5,
+              "value": 0
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": []
+}
