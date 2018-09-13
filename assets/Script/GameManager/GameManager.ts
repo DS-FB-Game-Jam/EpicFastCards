@@ -20,6 +20,7 @@ export class GameManager extends cc.Component {
       "EntregarCartao",
       "MemoryCard",
       "JuizCard",
+      "BoardingPass",
     ];
     private _lastLevel: string;
     private _currentLevel:number = 0;
