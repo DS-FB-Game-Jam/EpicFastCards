@@ -93,7 +93,7 @@ export default class GameOver extends BaseSwipe {
     // }
 
     share() {
-      console.log("share", this.getImageBase64());
+      console.log("share");
       // if (!this.fbInstant) return;
 
       // console.log("fbInstant loaded");
