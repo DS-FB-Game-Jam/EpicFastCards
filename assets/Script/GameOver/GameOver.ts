@@ -24,7 +24,10 @@ export default class GameOver extends BaseSwipe {
 
     private _gm;
     private swipped:boolean = false;
+    private info;
     // LIFE-CYCLE CALLBACKS:
+
+    private fbInstant: any;
 
     // onLoad () {}
 
@@ -33,12 +36,15 @@ export default class GameOver extends BaseSwipe {
       super.start();
       this.swipped = false;
       this._gm = cc.find("GameManager").getComponent("GameManager");
+      this.fbInstant = window['FBInstant'];
       this.setInfo();
+
+  
     }
 
     setInfo() {
-      let info = this._gm.getProgressInfo();
-      this.labelScore.string = "Score: "+info.score;
+      this.info = this._gm.getProgressInfo();
+      this.labelScore.string = "Score: "+this.info.score;
     }
 
     update (dt) {
@@ -49,5 +55,21 @@ export default class GameOver extends BaseSwipe {
           this._gm.restartGame();
         // }
       }
+    }
+
+    share() {
+      console.log("share");
+      if (!this.fbInstant) return;
+
+      console.log("fbInstant loaded");
+
+      this.fbInstant.shareAsync({
+            intent: 'SHARE',
+            text: 'Fiz '+this.info.score+" pontos, você consegue me superar?",
+            data: {myReplayData: '...'},
+        }).then(() => {
+            // continue with the game.
+            console.log("yaaaay");
+        });
     }
 }
