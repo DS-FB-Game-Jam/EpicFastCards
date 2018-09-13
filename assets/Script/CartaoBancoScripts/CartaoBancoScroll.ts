@@ -10,6 +10,7 @@
 
 const {ccclass, property} = cc._decorator;
 import { CartaoBancoSwipe } from './CartaoBancoSwipe'
+import {GameManager} from '../GameManager/GameManager';
 
 
 @ccclass
@@ -27,6 +28,7 @@ export class CartaoBancoScroll extends cc.Component {
     private _cartaoBancoSwipe:CartaoBancoSwipe = null;
     private minThreshold:number = 0;
     private maxThreshold:number = 0;
+    private _gm:GameManager = null;
 
 
     public working:boolean = true;
@@ -36,6 +38,9 @@ export class CartaoBancoScroll extends cc.Component {
       this._cartaoBancoSwipe = this.node.parent.parent.getComponent(CartaoBancoSwipe);
       this.minThreshold = this._cartaoBancoSwipe.minThreshold;
       this.maxThreshold = this._cartaoBancoSwipe.maxThreshold;
+      this._gm = cc.find("GameManager").getComponent("GameManager");
+      let info = this._gm.getProgressInfo();
+      this.scrollSpeed = this.scrollSpeed * (1+ (0.3*info.difficulty))
     }
 
     update (dt) {
