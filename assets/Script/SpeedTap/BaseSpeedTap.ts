@@ -11,21 +11,23 @@
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class NewClass extends cc.Component {
+export class BaseSpeedTap extends cc.Component {
 
-    @property(cc.Label)
-    label: cc.Label = null;
+    @property()
+    public totalTaps:number = 10;
 
-    @property
-    text: string = 'hello';
-
-    // LIFE-CYCLE CALLBACKS:
-
-    // onLoad () {}
+    tapCount:number = 0;
 
     start () {
+      this.tapCount = 0;
 
+      this.node.on("touchend", function () {
+
+        this.tapCount++;
+        this.hasTapped(this.tapCount, this.tapCount/this.totalTaps);
+
+      }, this);
     }
 
-    // update (dt) {}
+    hasTapped(tapCount, tapProgress) { }
 }
