@@ -21,6 +21,22 @@ export default class CartaoAniversarioSpeedTap extends BaseSpeedTap {
   @property(cc.Node)
   public card:cc.Node = null;
   private _cardAnimation:cc.Animation = null;
+  
+  @property(cc.AudioSource)
+  public music1:cc.AudioSource = null;
+  @property(cc.AudioSource)
+  public music2:cc.AudioSource = null;
+  @property(cc.AudioSource)
+  public music3:cc.AudioSource = null;
+  @property(cc.AudioSource)
+  public timeout:cc.AudioSource = null;
+  @property(cc.AudioSource)
+  public win:cc.AudioSource = null;
+  @property(cc.AudioSource)
+  public lose:cc.AudioSource = null;
+  @property(cc.AudioSource)
+  public click:cc.AudioSource = null;
+
 
   @property(cc.Node)
   public button:cc.Node = null;
@@ -51,6 +67,13 @@ export default class CartaoAniversarioSpeedTap extends BaseSpeedTap {
       this._gm = cc.find("GameManager").getComponent("GameManager");
       let progressInfo = this._gm.getProgressInfo();
       this.totalTime = progressInfo.levelTime;
+      if (progressInfo.difficulty == 1) {
+        this.music1.play();
+      } else if (progressInfo.difficulty == 2) {
+        this.music2.play();
+      } else {
+        this.music3.play();
+      }
     } else {
       this.totalTime = 5;
     }
@@ -67,6 +90,7 @@ export default class CartaoAniversarioSpeedTap extends BaseSpeedTap {
     this.levelTime += dt;
     this.updateTimer();
     if (this.levelTime > this.totalTime) {
+      this.timeout.play();
       this.loseGame();
     }
   }
@@ -83,7 +107,7 @@ export default class CartaoAniversarioSpeedTap extends BaseSpeedTap {
     }
 
     if (progress < 1) {
-      console.log("rolou progresso");
+      this.click.play();
       this.card.setPosition(this.card.position.x, this.startY + (progress*this.height));
       if (this._buttonAnimation) {
         this._buttonAnimation.play("ButtonPress");
@@ -93,6 +117,7 @@ export default class CartaoAniversarioSpeedTap extends BaseSpeedTap {
   }
 
   loseGame() {
+    this.lose.play();
     this.endGame = true;
     console.log("perdeu");
     this.losePrefab.active = true;
@@ -104,6 +129,7 @@ export default class CartaoAniversarioSpeedTap extends BaseSpeedTap {
   }
 
   winGame() {
+    this.win.play();
     this.endGame = true;
     if (this._cardAnimation)
       this._cardAnimation.play("BirthdayCardClose");
