@@ -70,7 +70,7 @@ export class EntregarBusinessTap extends BaseTap {
         this.totalTime = 5;
       }
 
-      this.timePerHand = this.totalTime/this.totalHands;
+      this.timePerHand = (this.totalTime - (0.5*this.totalHands) ) / this.totalHands;
       console.log("tempos");
       console.log("totalTime"+this.totalTime);
       console.log("perhand"+this.timePerHand);
@@ -84,7 +84,7 @@ export class EntregarBusinessTap extends BaseTap {
       
       this.levelTime += dt;
       if (this.levelTime > this.totalTime) {
-        console.log("timeout");
+        console.log("timeout", this.levelTime);
         this.winGame();
         return;
       }
@@ -102,7 +102,7 @@ export class EntregarBusinessTap extends BaseTap {
           }
         }
       } else {
-        if (this.startHandTime > this.intermissionTime) {
+        if (this.startHandTime >= this.intermissionTime) {
           console.log("Deu o tempo de espera");
           this.choseHand();
         }
@@ -121,10 +121,10 @@ export class EntregarBusinessTap extends BaseTap {
         this._handCloseAnimation.play("MaoFechadaEnter");
       }
 
-      if (this.currentHandCount > this.totalHands) {
-        console.log("choseHand > total");
-        this.winGame();
-      }
+      // if (this.currentHandCount > this.totalHands) {
+      //   console.log("choseHand > total");
+      //   this.winGame();
+      // }
 
       this.startHandTime = 0;
 
