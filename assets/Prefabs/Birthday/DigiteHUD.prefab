@@ -24,7 +24,7 @@
       }
     ],
     "_active": true,
-    "_level": 1,
+    "_level": 2,
     "_components": [
       {
         "__id__": 8
@@ -167,7 +167,7 @@
     "_isTrimmedMode": true,
     "_state": 0,
     "_atlas": null,
-    "_id": "5eJlbXjO5PSaE3+Eh4UPvL"
+    "_id": "b49Z7fwjVCnYrE1D3EkMCA"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -175,7 +175,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "035d21a6-9ab6-4eb7-8ea0-73b46c07862e"
     },
     "fileId": "74u1wkeYxNNb/+HdHOn/Ce",
     "sync": false
@@ -269,7 +269,7 @@
     "_isTrimmedMode": true,
     "_state": 0,
     "_atlas": null,
-    "_id": "70oi8eMhVCIIdEAIFavCfn"
+    "_id": "a8QMu88aNO9LrfO15ecpPE"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -277,7 +277,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "035d21a6-9ab6-4eb7-8ea0-73b46c07862e"
     },
     "fileId": "11r4be4lBKxZAGaIYdsOHy",
     "sync": false
@@ -299,7 +299,7 @@
       }
     ],
     "playOnLoad": true,
-    "_id": "2ex3ZE/3lOco54KCMjoxdZ"
+    "_id": "2e2h335kVEZYqduS6kukti"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -307,7 +307,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "035d21a6-9ab6-4eb7-8ea0-73b46c07862e"
     },
     "fileId": "08DTa3OP9HI7e+RSkRtl7h",
     "sync": false
