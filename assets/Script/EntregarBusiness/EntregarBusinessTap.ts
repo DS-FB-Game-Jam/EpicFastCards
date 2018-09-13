@@ -19,6 +19,23 @@ export class EntregarBusinessTap extends BaseTap {
 
     // onLoad () {}
 
+    @property(cc.AudioSource)
+    public music1:cc.AudioSource = null;
+    @property(cc.AudioSource)
+    public music2:cc.AudioSource = null;
+    @property(cc.AudioSource)
+    public music3:cc.AudioSource = null;
+    @property(cc.AudioSource)
+    public timeout:cc.AudioSource = null;
+    @property(cc.AudioSource)
+    public win:cc.AudioSource = null;
+    @property(cc.AudioSource)
+    public lose:cc.AudioSource = null;
+    @property(cc.AudioSource)
+    public fail:cc.AudioSource = null;
+    @property(cc.AudioSource)
+    public success:cc.AudioSource = null;
+
     @property(cc.Node)
     public timer:cc.Node = null;
 
@@ -52,7 +69,7 @@ export class EntregarBusinessTap extends BaseTap {
     private _gm:GameManager = null;
 
     private startHandTime:number = 0;
-    private intermissionTime:number = 0.3;
+    private intermissionTime:number = 0.5;
 
     start () {
       super.start();
@@ -68,11 +85,18 @@ export class EntregarBusinessTap extends BaseTap {
         this._gm = cc.find("GameManager").getComponent("GameManager");
         let progressInfo = this._gm.getProgressInfo();
         this.totalTime = progressInfo.levelTime;
+        if (progressInfo.difficulty == 1) {
+          this.music1.play();
+        } else if (progressInfo.difficulty == 2) {
+          this.music2.play();
+        } else {
+          this.music3.play();
+        }
       } else {
         this.totalTime = 5;
       }
 
-      this.timePerHand = (this.totalTime - (this.intermissionTime*this.totalHands) ) / this.totalHands;
+      this.timePerHand = (this.totalTime ) / this.totalHands;
       console.log("tempos");
       console.log("totalTime"+this.totalTime);
       console.log("perhand"+this.timePerHand);
@@ -82,12 +106,14 @@ export class EntregarBusinessTap extends BaseTap {
     }
 
     update(dt) {
-      if (this.currentHandCount > this.totalHands || this.endGame) return;
+      // if (this.currentHandCount > this.totalHands || this.endGame) return;
+      if (this.endGame) return;
       
       this.levelTime += dt;
       this.updateTimer();
       if (this.levelTime > this.totalTime) {
         console.log("timeout", this.levelTime);
+        this.timeout.play();
         this.winGame();
         return;
       }
@@ -100,7 +126,7 @@ export class EntregarBusinessTap extends BaseTap {
             console.log("timeout opened");
             this.loseGame();
           } else {
-            this.intermissionTime = 0.3;
+            this.intermissionTime = 0.5;
             this.nextHand();
           }
         }
@@ -144,10 +170,10 @@ export class EntregarBusinessTap extends BaseTap {
       this.currentHand = null;
       this.startHandTime = 0;
 
-      if (this.currentHandCount > this.totalHands) {
-        console.log("nextHand > total");
-        this.winGame();
-      }
+      // if (this.currentHandCount > this.totalHands) {
+      //   console.log("nextHand > total");
+      //   this.winGame();
+      // }
     }
 
     tapped(location:cc.Vec2) {
@@ -157,10 +183,12 @@ export class EntregarBusinessTap extends BaseTap {
         this._businessCardsAnimation.play("BusinessCardDeliver");
         this.card.active = true;
         this.intermissionTime = 0.5;
+        this.success.play();
         this.nextHand();
       } else {
         this._handCloseAnimation.play("MaoFechadaGetCard");
         console.log("click on closed");
+        this.fail.play();
         this.loseGame();
       }
 
@@ -168,6 +196,7 @@ export class EntregarBusinessTap extends BaseTap {
 
     loseGame() {
       console.log("Perdeu");
+      this.lose.play();
       this.endGame = true;
       this.losePrefab.active = true;
       if (!this._gm) return;
@@ -179,6 +208,7 @@ export class EntregarBusinessTap extends BaseTap {
     }
 
     winGame() {
+      this.win.play();
       console.log("Ganhou");
       this.endGame = true;
       if (!this._gm) return;

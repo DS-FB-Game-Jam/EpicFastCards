@@ -15,6 +15,23 @@ import {GameManager} from '../GameManager/GameManager';
 @ccclass
 export default class CartaoMemoriaRegionTap extends cc.Component {
 
+
+    @property(cc.AudioSource)
+    public music1:cc.AudioSource = null;
+    @property(cc.AudioSource)
+    public music2:cc.AudioSource = null;
+    @property(cc.AudioSource)
+    public music3:cc.AudioSource = null;
+    @property(cc.AudioSource)
+    public timeout:cc.AudioSource = null;
+    @property(cc.AudioSource)
+    public win:cc.AudioSource = null;
+    @property(cc.AudioSource)
+    public lose:cc.AudioSource = null;
+    @property(cc.AudioSource)
+    public click:cc.AudioSource = null;
+
+
     @property(cc.Node)
     public timer:cc.Node = null;
 
@@ -27,6 +44,10 @@ export default class CartaoMemoriaRegionTap extends cc.Component {
       'memory_iron_souls':'MemoryCardsIronSoul', 
       'memory_oiram':'MemoryCardsOIRam', 
       'memory_vasebreaker':'MemoryCardsVaseBreaker'};
+    private memorySounds:any = {
+      'memory_iron_souls':'memorycard_darksouls', 
+      'memory_oiram':'memorycard_mario', 
+      'memory_vasebreaker':'memorycard_zelda'};
       
     @property(cc.Node)
     public tv:cc.Node = null;
@@ -53,6 +74,13 @@ export default class CartaoMemoriaRegionTap extends cc.Component {
         this._gm = cc.find("GameManager").getComponent("GameManager");
         let progressInfo = this._gm.getProgressInfo();
         this.totalTime = progressInfo.levelTime;
+        if (progressInfo.difficulty == 1) {
+          this.music1.play();
+        } else if (progressInfo.difficulty == 2) {
+          this.music2.play();
+        } else {
+          this.music3.play();
+        }
       }
 
       if (this.memories)
@@ -68,7 +96,8 @@ export default class CartaoMemoriaRegionTap extends cc.Component {
       if (this.endGame) return;
       this.levelTime += dt;
       this.updateTimer();
-      if (!this.endGame && this.levelTime > this.totalTime) {
+      if (this.levelTime > this.totalTime) {
+        this.timeout.play();
         this.loseGame();
       }
     }
@@ -80,6 +109,7 @@ export default class CartaoMemoriaRegionTap extends cc.Component {
     registerTap(region:string) {
       // console.log("registerTap:", region);
       if (this.endGame) return;
+      this.click.play();
       if (region == this.selectedCard) {
         this._memoriesAnimation.play(this.memoryAnimations[this.selectedCard]);
         this.winGame();
@@ -89,6 +119,7 @@ export default class CartaoMemoriaRegionTap extends cc.Component {
     }
 
     loseGame() {
+      this.lose.play();
       this.endGame = true;
       console.log("loseGame");
       this.losePrefab.active = true;
@@ -100,6 +131,9 @@ export default class CartaoMemoriaRegionTap extends cc.Component {
     }
 
     winGame() {
+      let source:cc.AudioSource = this.node.getChildByName(this.memorySounds[this.selectedCard]).getComponent(cc.AudioSource);
+      if(source) source.play();
+      this.win.play();
       this.endGame = true;
       console.log("winGame");
       if (!this._gm) return;
