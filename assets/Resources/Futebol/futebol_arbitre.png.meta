@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "3cf18331-8cad-4c8b-8c88-4790e73ca133",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "futebol_arbitre": {
+      "ver": "1.0.3",
+      "uuid": "3201b8d7-9c38-451e-a548-7e1bde2d9aa1",
+      "rawTextureUuid": "3cf18331-8cad-4c8b-8c88-4790e73ca133",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 66,
+      "height": 418,
+      "rawWidth": 66,
+      "rawHeight": 418,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

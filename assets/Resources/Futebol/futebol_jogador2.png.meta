@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "9deec183-f115-4cc5-b1ca-29be673bcc2e",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "futebol_jogador2": {
+      "ver": "1.0.3",
+      "uuid": "545638a5-80c3-42b0-8599-d190aa338791",
+      "rawTextureUuid": "9deec183-f115-4cc5-b1ca-29be673bcc2e",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 399,
+      "height": 452,
+      "rawWidth": 399,
+      "rawHeight": 452,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
