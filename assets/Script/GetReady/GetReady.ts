@@ -14,7 +14,12 @@ const {ccclass, property} = cc._decorator;
 export default class GetReady extends cc.Component {
 
     @property(cc.Label)
-    labelTimer: cc.Label = null;
+    labelTimerD: cc.Label = null;
+    @property(cc.Label)
+    labelTimerE: cc.Label = null;
+    
+    @property(cc.Label)
+    scoreLabel: cc.Label = null;
 
     @property(cc.Node)
     labelMaisRapido: cc.Node = null;
@@ -71,6 +76,9 @@ export default class GetReady extends cc.Component {
       if (info.levelUp) {
         this.labelMaisRapido.active = true;
       }
+      if (info.score) {
+      	this.scoreLabel.string = info.score+" Pts."
+      }
 
       this._disquete1Animation.play("DisqueteInteiroIddle");
       if (info.hp == 1) {
@@ -101,10 +109,12 @@ export default class GetReady extends cc.Component {
     update (dt) {
       if(this._countDown >= 0 ) {
         this._countDown -= dt;
-        this.labelTimer.string = ""+Math.floor(this._countDown);
+        this.labelTimerD.string = ""+Math.floor(this._countDown);
+        this.labelTimerE.string = ""+Math.floor(this._countDown);
 
         if(this._countDown <= 0) {
-          this.labelTimer.string = "0";
+          this.labelTimerD.string = "0";
+          this.labelTimerE.string = "0";
           this._gm.loadNextLevel();
         }
       }
