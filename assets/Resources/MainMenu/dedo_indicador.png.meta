@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "e9425234-95b7-41b1-a7b7-bbd2adc90aaa",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "dedo_indicador": {
+      "ver": "1.0.3",
+      "uuid": "900fd13c-38dc-407d-9d7e-9b718d3b15b1",
+      "rawTextureUuid": "e9425234-95b7-41b1-a7b7-bbd2adc90aaa",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 48,
+      "height": 103,
+      "rawWidth": 48,
+      "rawHeight": 103,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
