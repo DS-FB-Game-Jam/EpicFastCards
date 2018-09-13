@@ -12,10 +12,13 @@
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class GameManager extends cc.Component {
+export class GameManager extends cc.Component {
 
     private _levels: string[] = [
-      "CartaoBanco"
+      "CartaoBanco",
+      "CartaoAniversario",
+      "EntregarCartao",
+      "MemoryCard",
     ];
     private _lastLevel: string;
     private _currentLevel:number = 0;
@@ -86,7 +89,7 @@ export default class GameManager extends cc.Component {
     }
 
     getProgressInfo() {
-      return {difficulty: this._currentDifficulty, hp: this._currentHP, score:this._score};
+      return {difficulty: this._currentDifficulty, hp: this._currentHP, score:this._score, levelTime:5};
     }
 
     //END

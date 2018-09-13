@@ -1,76 +1,12 @@
 {
   "__type__": "cc.AnimationClip",
-  "_name": "BirthdayCardIddle",
+  "_name": "BirthdayCardClose",
   "_objFlags": 0,
   "_native": "",
-  "_duration": 0.3333333333333333,
+  "_duration": 0,
   "sample": 60,
   "speed": 1,
   "wrapMode": 1,
-  "curveData": {
-    "paths": {
-      "cartao_parabens_parte_frente": {
-        "props": {
-          "scaleX": [
-            {
-              "frame": 0,
-              "value": 1,
-              "curve": "linear"
-            },
-            {
-              "frame": 0.16666666666666666,
-              "value": 0
-            }
-          ]
-        }
-      },
-      "cartao_parabens_fechado_parte": {
-        "props": {
-          "scaleX": [
-            {
-              "frame": 0.16666666666666666,
-              "value": 0,
-              "curve": [
-                0.5972027972027972,
-                0.10769230769230775,
-                0.8048951048951049,
-                0.3066433566433566
-              ]
-            },
-            {
-              "frame": 0.3333333333333333,
-              "value": 1
-            }
-          ],
-          "position": [
-            {
-              "frame": 0.16666666666666666,
-              "value": [
-                0,
-                0
-              ]
-            },
-            {
-              "frame": 0.3333333333333333,
-              "value": [
-                -3,
-                -0.4
-              ]
-            }
-          ],
-          "rotation": [
-            {
-              "frame": 0.16666666666666666,
-              "value": 0
-            },
-            {
-              "frame": 0.3333333333333333,
-              "value": -2
-            }
-          ]
-        }
-      }
-    }
-  },
+  "curveData": {},
   "events": []
 }

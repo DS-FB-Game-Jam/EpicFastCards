@@ -10,12 +10,14 @@
 
 const {ccclass, property} = cc._decorator;
 import { BaseSpeedTap } from '../SpeedTap/BaseSpeedTap'
+import {GameManager} from '../GameManager/GameManager';
 
 @ccclass
 export default class CartaoAniversarioSpeedTap extends BaseSpeedTap {
 
   @property(cc.Node)
   public card:cc.Node = null;
+  private _cardAnimation:cc.Animation = null;
 
   @property(cc.Node)
   public button:cc.Node = null;
@@ -30,20 +32,33 @@ export default class CartaoAniversarioSpeedTap extends BaseSpeedTap {
   @property()
   public mistakeTime:number = 1;
 
+  @property(cc.Node)
+  public losePrefab:cc.Node = null;
+
   private endGame:boolean = false;
 
   private totalTime:number = 5;
   private levelTime:number = 0;
+  private _gm:GameManager = null;
 
   start () {
     super.start();
+
+    if (cc.find("GameManager")) {
+      this._gm = cc.find("GameManager").getComponent("GameManager");
+      let progressInfo = this._gm.getProgressInfo();
+      this.totalTime = progressInfo.levelTime;
+    }
     if (this.button)
       this._buttonAnimation = this.button.getComponent(cc.Animation);
+    if (this.card)
+      this._cardAnimation = this.card.getComponent(cc.Animation);
   }
 
   update(dt) {
+    if (this.endGame) return;
     this.levelTime += dt;
-    if (!this.endGame && this.levelTime > this.totalTime) {
+    if (this.levelTime > this.totalTime) {
       this.loseGame();
     }
   }
@@ -68,11 +83,24 @@ export default class CartaoAniversarioSpeedTap extends BaseSpeedTap {
   loseGame() {
     this.endGame = true;
     console.log("perdeu");
+    this.losePrefab.active = true;
+      if (!this._gm) return;
+    let gm = this._gm;
+    setTimeout(function (){
+      gm.nextLevel(false);
+    }, 1500);
   }
 
   winGame() {
     this.endGame = true;
+    if (this._cardAnimation)
+      this._cardAnimation.play("BirthdayCardClose");
     console.log("ganhou");
+      if (!this._gm) return;
+    let gm = this._gm;
+    setTimeout(function (){
+      gm.nextLevel(true);
+    }, 1500);
   }
 
 }

@@ -10,6 +10,7 @@
 
 const {ccclass, property} = cc._decorator;
 import { RegionTap } from '../RegionTap/RegionTap';
+import {GameManager} from '../GameManager/GameManager';
 
 @ccclass
 export default class CartaoMemoriaRegionTap extends cc.Component {
@@ -34,12 +35,23 @@ export default class CartaoMemoriaRegionTap extends cc.Component {
 
     private selectedCard:string = "";
 
+
+    @property(cc.Node)
+    public losePrefab:cc.Node = null;
+
     private endGame:boolean = false;
 
     private totalTime:number = 5;
     private levelTime:number = 0;
+    private _gm:GameManager = null;
 
     start () {
+      if (cc.find("GameManager")) {
+        this._gm = cc.find("GameManager").getComponent("GameManager");
+        let progressInfo = this._gm.getProgressInfo();
+        this.totalTime = progressInfo.levelTime;
+      }
+
       if (this.memories)
         this._memoriesAnimation = this.memories.getComponent(cc.Animation);
       if (this.tv)
@@ -70,10 +82,21 @@ export default class CartaoMemoriaRegionTap extends cc.Component {
     loseGame() {
       this.endGame = true;
       console.log("loseGame");
+      this.losePrefab.active = true;
+      if (!this._gm) return;
+      let gm = this._gm;
+      setTimeout(function (){
+        gm.nextLevel(false);
+      }, 1500);
     }
 
     winGame() {
       this.endGame = true;
       console.log("winGame");
+      if (!this._gm) return;
+      let gm = this._gm;
+      setTimeout(function (){
+        gm.nextLevel(true);
+      }, 1500);
     }
 }

@@ -11,6 +11,7 @@
 const {ccclass, property} = cc._decorator;
 import {BaseSwipe} from '../Swipe/BaseSwipe';
 import {CartaoBancoScroll} from './CartaoBancoScroll';
+import {GameManager} from '../GameManager/GameManager';
 
 @ccclass
 export class CartaoBancoSwipe extends BaseSwipe {
@@ -25,15 +26,29 @@ export class CartaoBancoSwipe extends BaseSwipe {
     public _maquinaAnimation:cc.Animation = null;
 
     private swipped:boolean = false;
-    private _gm;
+    private _gm:GameManager = null;
+
+
+    @property(cc.Node)
+    public losePrefab:cc.Node = null;
+
+    private endGame:boolean = false;
+    private totalTime:number = 5;
+    private levelTime:number = 0;
 
     start() {
       super.start();
       this._gm = cc.find("GameManager").getComponent("GameManager");
+      let progressInfo = this._gm.getProgressInfo();
+      this.totalTime = progressInfo.levelTime;
     }
 
     update (dt) {
-
+      if (this.endGame) return;
+      this.levelTime += dt;
+      if (this.levelTime > this.totalTime ) {
+        this.loseGame();
+      }
       if (this.isSwipeUp && !this.swipped) {
         this.swipped = true;
         this.doSwipeUp();
@@ -75,17 +90,28 @@ export class CartaoBancoSwipe extends BaseSwipe {
 
     winGame() {
       //DoWinGame;
+      this.endGame = true;
       if(this._maquinaAnimation) {
         this._maquinaAnimation.play("MaquinaCartaoPago");
       }
-      this._gm.nextLevel(false);
+      if (!this._gm) return;
+      let gm = this._gm;
+      setTimeout(function (){
+        gm.nextLevel(false);
+      }, 1500);
     }
 
     loseGame() {
       //DoLoseGame;
+      this.endGame = true;
+      this.losePrefab.active = true;
       if(this._maquinaAnimation) {
         this._maquinaAnimation.play("MaquinaCartaoError");
       }
-      this._gm.nextLevel(true);
+      if (!this._gm) return;
+      let gm = this._gm;
+      setTimeout(function (){
+        gm.nextLevel(true);
+      }, 1500);
     }
 }

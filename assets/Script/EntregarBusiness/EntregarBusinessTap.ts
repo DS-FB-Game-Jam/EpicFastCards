@@ -10,6 +10,7 @@
 
 const {ccclass, property} = cc._decorator;
 import { BaseTap } from '../Tap/BaseTap'
+import {GameManager} from '../GameManager/GameManager';
 
 
 @ccclass
@@ -18,8 +19,6 @@ export class EntregarBusinessTap extends BaseTap {
 
     // onLoad () {}
 
-    @property()
-    public totalTime:number = 5;
 
     @property()
     public totalHands:number = 5;
@@ -40,13 +39,22 @@ export class EntregarBusinessTap extends BaseTap {
 
     public currentHand:cc.Node = null;
     public currentHandCount:number = 0;
+   
+    private levelTime:number = 0;
+
+    @property(cc.Node)
+    public losePrefab:cc.Node = null;
+
+    private totalTime:number = 5;
     private endGame:boolean = false;
+    private _gm:GameManager = null;
 
     private startHandTime:number = 0;
     private intermissionTime:number = 0.5;
 
     start () {
       super.start();
+      this.levelTime = 0;
       if (this.handOpen)
         this._handOpenAnimation = this.handOpen.getComponent(cc.Animation);
       if (this.handClose)
@@ -54,18 +62,39 @@ export class EntregarBusinessTap extends BaseTap {
       if (this.businessCards) 
         this._businessCardsAnimation = this.businessCards.getComponent(cc.Animation);
 
+      if (cc.find("GameManager")) {
+        this._gm = cc.find("GameManager").getComponent("GameManager");
+        let progressInfo = this._gm.getProgressInfo();
+        this.totalTime = progressInfo.levelTime;
+      } else {
+        this.totalTime = 5;
+      }
+
       this.timePerHand = this.totalTime/this.totalHands;
+      console.log("tempos");
+      console.log("totalTime"+this.totalTime);
+      console.log("perhand"+this.timePerHand);
       this.startHandTime = 0;
       // this.choseHand();
+      this.intermissionTime = 0;
     }
 
     update(dt) {
       if (this.currentHandCount > this.totalHands || this.endGame) return;
+      
+      this.levelTime += dt;
+      if (this.levelTime > this.totalTime) {
+        console.log("timeout");
+        this.winGame();
+        return;
+      }
+
       this.startHandTime += dt;
       if (this.currentHand != null) {
         if (this.startHandTime > this.timePerHand) {
           console.log("Deu o tempo da mão");
           if (this.currentHand == this.handOpen) {
+            console.log("timeout opened");
             this.loseGame();
           } else {
             this.intermissionTime = 0.5;
@@ -93,6 +122,7 @@ export class EntregarBusinessTap extends BaseTap {
       }
 
       if (this.currentHandCount > this.totalHands) {
+        console.log("choseHand > total");
         this.winGame();
       }
 
@@ -103,9 +133,14 @@ export class EntregarBusinessTap extends BaseTap {
     nextHand() {
       if (this.currentHand == this.handOpen) this._handOpenAnimation.play("MaoAbertaLeave");
       if (this.currentHand == this.handClose) this._handCloseAnimation.play("MaoFechadaLeave");
-      
+
       this.currentHand = null;
       this.startHandTime = 0;
+
+      if (this.currentHandCount > this.totalHands) {
+        console.log("nextHand > total");
+        this.winGame();
+      }
     }
 
     tapped(location:cc.Vec2) {
@@ -114,9 +149,11 @@ export class EntregarBusinessTap extends BaseTap {
       if (this.currentHand == this.handOpen) {
         this._businessCardsAnimation.play("BusinessCardDeliver");
         this.card.active = true;
+        this.intermissionTime = 0.5;
         this.nextHand();
       } else {
         this._handCloseAnimation.play("MaoFechadaGetCard");
+        console.log("click on closed");
         this.loseGame();
       }
 
@@ -125,12 +162,23 @@ export class EntregarBusinessTap extends BaseTap {
     loseGame() {
       console.log("Perdeu");
       this.endGame = true;
+      this.losePrefab.active = true;
+      if (!this._gm) return;
+      let gm = this._gm;
+      setTimeout(function (){
+        gm.nextLevel(false);
+      }, 1500);
       //Lose
     }
 
     winGame() {
       console.log("Ganhou");
       this.endGame = true;
+      if (!this._gm) return;
+      let gm = this._gm;
+      setTimeout(function (){
+        gm.nextLevel(true);
+      }, 1500);
     }
 
     // update (dt) {}
