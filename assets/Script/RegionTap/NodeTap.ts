@@ -13,9 +13,8 @@ const {ccclass, property} = cc._decorator;
 @ccclass
 export default class NodeTap extends cc.Component {
 
-    // LIFE-CYCLE CALLBACKS:
-
-    // onLoad () {}
+    @property()
+    public regionScriptName:string = "RegionTap";
 
     start () {
 
@@ -39,9 +38,8 @@ export default class NodeTap extends cc.Component {
 
     processTouch(event) {
       console.log("processTouch:", this.node.name);
-      this.node.parent.getComponent("RegionTap").registerTap(this.node.name);
+      this.node.parent.getComponent(this.regionScriptName).registerTap(this.node.name);
     }
 
 
-    // update (dt) {}
 }

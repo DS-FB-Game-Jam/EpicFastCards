@@ -26,19 +26,19 @@ export class EntregarBusinessTap extends BaseTap {
     public timePerHand:number = 1;
 
     @property(cc.Node)
-    public card:cc.Node;
+    public card:cc.Node = null;
 
     @property(cc.Node)
-    public handOpen:cc.Node;
-    private _handOpenAnimation:cc.Animation;
+    public handOpen:cc.Node = null;
+    private _handOpenAnimation:cc.Animation = null;
     @property(cc.Node)
-    public handClose:cc.Node;
-    private _handCloseAnimation:cc.Animation;
+    public handClose:cc.Node = null;
+    private _handCloseAnimation:cc.Animation = null;
     @property(cc.Node)
-    public businessCards:cc.Node;
-    private _businessCardsAnimation:cc.Animation;
+    public businessCards:cc.Node = null;
+    private _businessCardsAnimation:cc.Animation = null;
 
-    public currentHand:cc.Node;
+    public currentHand:cc.Node = null;
     public currentHandCount:number = 0;
     private endGame:boolean = false;
 

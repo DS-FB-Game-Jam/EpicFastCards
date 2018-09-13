@@ -11,11 +11,7 @@
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class RegionTap extends cc.Component {
-
-    // LIFE-CYCLE CALLBACKS:
-
-    // onLoad () {}
+export class RegionTap extends cc.Component {
 
     start () {
 
@@ -25,7 +21,4 @@ export default class RegionTap extends cc.Component {
       console.log("registerTap:", region);
     }
 
-
-
-    // update (dt) {}
 }

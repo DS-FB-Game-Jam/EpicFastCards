@@ -15,11 +15,11 @@ import { BaseSpeedTap } from '../SpeedTap/BaseSpeedTap'
 export default class CartaoAniversarioSpeedTap extends BaseSpeedTap {
 
   @property(cc.Node)
-  public card:cc.Node;
+  public card:cc.Node = null;
 
   @property(cc.Node)
-  public button:cc.Node;
-  public _buttonAnimation:cc.Animation;
+  public button:cc.Node = null;
+  public _buttonAnimation:cc.Animation = null;
 
   @property()
   public startY:number = -110;

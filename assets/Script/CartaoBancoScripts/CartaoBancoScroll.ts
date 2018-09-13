@@ -19,14 +19,14 @@ export class CartaoBancoScroll extends cc.Component {
     public scrollSpeed:number = 420;
 
     @property(cc.Node)
-    public link:cc.Node;
+    public link:cc.Node = null;
 
     @property()
     public correctCard:boolean = false;
     
-    private _cartaoBancoSwipe:CartaoBancoSwipe;
-    private minThreshold:number;
-    private maxThreshold:number;
+    private _cartaoBancoSwipe:CartaoBancoSwipe = null;
+    private minThreshold:number = 0;
+    private maxThreshold:number = 0;
 
 
     public working:boolean = true;

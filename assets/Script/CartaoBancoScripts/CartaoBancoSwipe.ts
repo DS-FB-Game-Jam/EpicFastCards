@@ -21,8 +21,8 @@ export class CartaoBancoSwipe extends BaseSwipe {
     public maxThreshold:number = 20;
 
     @property(cc.Node)
-    public maquina:cc.Node;
-    public _maquinaAnimation:cc.Animation;
+    public maquina:cc.Node = null;
+    public _maquinaAnimation:cc.Animation = null;
 
     private swipped:boolean = false;
     update (dt) {
