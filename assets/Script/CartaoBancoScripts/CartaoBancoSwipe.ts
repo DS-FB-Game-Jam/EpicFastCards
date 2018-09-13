@@ -25,6 +25,13 @@ export class CartaoBancoSwipe extends BaseSwipe {
     public _maquinaAnimation:cc.Animation = null;
 
     private swipped:boolean = false;
+    private _gm;
+
+    start() {
+      super.start();
+      this._gm = cc.find("GameManager").getComponent("GameManager");
+    }
+
     update (dt) {
 
       if (this.isSwipeUp && !this.swipped) {
@@ -71,6 +78,7 @@ export class CartaoBancoSwipe extends BaseSwipe {
       if(this._maquinaAnimation) {
         this._maquinaAnimation.play("MaquinaCartaoPago");
       }
+      this._gm.nextLevel(false);
     }
 
     loseGame() {
@@ -78,5 +86,6 @@ export class CartaoBancoSwipe extends BaseSwipe {
       if(this._maquinaAnimation) {
         this._maquinaAnimation.play("MaquinaCartaoError");
       }
+      this._gm.nextLevel(true);
     }
 }
