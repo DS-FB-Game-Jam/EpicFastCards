@@ -45,6 +45,7 @@ export default class GameOver extends BaseSwipe {
     setInfo() {
       this.info = this._gm.getProgressInfo();
       this.labelScore.string = ""+this.info.score;
+      this.postScore(this.info.score);
     }
 
     update (dt) {
@@ -57,23 +58,69 @@ export default class GameOver extends BaseSwipe {
       }
     }
 
-    share() {
-      console.log("share", this.getImageBase64());
+    postScore(score: number) {
+      console.log("postScore", this.fbInstant);
       if (!this.fbInstant) return;
+      this.fbInstant.getLeaderboardAsync('leaderboard')
+      .then(function(leaderboard) {
+        console.log("leaderboard", leaderboard);
+        console.log("score", score);
+        return leaderboard.setScoreAsync(score);
+      }).then( function(entry) {
+        console.log("entry", entry);
+        // this.getConnectedLeaderBoard();
+      }, function(error) {
+        console.error(error);
+      });
+    }
 
-      console.log("fbInstant loaded");
+    // getConnectedLeaderBoard() {
+    //   console.log("getConnectedLeaderBoard");
+    //    if (!this.fbInstant) return;
+    //   this.fbInstant.getLeaderboardAsync('leaderboard')
+    //   .then(function(leaderboard) {
+    //     console.log("leaderboard", leaderboard);
+    //     return leaderboard.getConnectedPlayerEntriesAsync(5,3);
+    //   })
+    //   .then(function(entries) {
+    //     console.log("connect leaderboard entries size", entries.length);
+    //     for(let entry of entries) {
+    //       console.log("entry", entry);
+    //       console.log("rank: ", entry.getRank());
+    //       console.log("score: ", entry.getScore());
+    //     }
+    //   });
+    // }
 
-      this.fbInstant.shareAsync({
-            intent: 'SHARE',
-            image: this.getImageBase64(),
-            text: 'Fiz '+this.info.score+" pontos, você consegue me superar?",
-            data: {myReplayData: '...'},
-        }).then(() => {
-            // continue with the game.
-            console.log("yaaaay");
-        }, (e) => {
-          console.log("error?", e);
-        });
+    share() {
+      console.log("share");
+      // if (!this.fbInstant) return;
+
+      // console.log("fbInstant loaded");
+
+      // this.fbInstant.shareAsync({
+      //       intent: 'CHALLENGE',
+      //       image: this.getImageBase64(),
+      //       text: 'Fiz '+this.info.score+" pontos, você consegue me superar?",
+      //       data: {myReplayData: '...'},
+      //   }).then(() => {
+      //       // continue with the game.
+      //       console.log("yaaaay");
+      //   }, (e) => {
+      //     console.log("error?", e);
+      //   });
+      this.shareHighscore();
+    }
+
+    shareHighscore() {
+      console.log("shareHighscore");
+      if (!this.fbInstant) return;
+      this.fbInstant.updateAsync({
+        action: 'LEADERBOARD',
+        name: 'leaderboard'
+      })
+      .then(() => console.log('Update Posted'))
+      .catch(error => console.error(error));
     }
 
     getImageBase64() {
