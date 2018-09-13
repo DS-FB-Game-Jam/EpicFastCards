@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "7222841d-a124-4b7c-97de-e59867746ebc",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "futebol_cartao": {
+      "ver": "1.0.3",
+      "uuid": "7681f72e-aa70-4edf-af39-56ecb4525bac",
+      "rawTextureUuid": "7222841d-a124-4b7c-97de-e59867746ebc",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 421,
+      "height": 1024,
+      "rawWidth": 421,
+      "rawHeight": 1024,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
