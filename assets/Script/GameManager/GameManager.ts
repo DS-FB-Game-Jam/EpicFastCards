@@ -19,6 +19,7 @@ export class GameManager extends cc.Component {
       "CartaoAniversario",
       "EntregarCartao",
       "MemoryCard",
+      "JuizCard",
     ];
     private _lastLevel: string;
     private _currentLevel:number = 0;
@@ -103,7 +104,7 @@ export class GameManager extends cc.Component {
         levelUp: this._levelUp,
         hp: this._currentHP,
         score: this._score,
-        levelTime: 5 - (this._currentDifficulty*0.5),
+        levelTime: 7 - (this._currentDifficulty*0.5),
         lost: this._lost
       };
     }

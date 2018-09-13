@@ -9,20 +9,12 @@
 //  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/life-cycle-callbacks.html
 
 const {ccclass, property} = cc._decorator;
-import {BaseSwipe} from '../Swipe/BaseSwipe';
-import {CartaoBancoScroll} from './CartaoBancoScroll';
-import {GameManager} from '../GameManager/GameManager';
+import {BaseSwipe} from '../Swipe/BaseSwipe'
+import {GameManager} from '../GameManager/GameManager'
+
 
 @ccclass
-export class CartaoBancoSwipe extends BaseSwipe {
-
-    @property(cc.Node)
-    public timer:cc.Node = null;
-
-    @property()
-    public minThreshold:number = -20;
-    @property()
-    public maxThreshold:number = 20;
+export default class JuizSwipe extends BaseSwipe {
 
 
     @property(cc.AudioSource)
@@ -39,27 +31,42 @@ export class CartaoBancoSwipe extends BaseSwipe {
     public lose:cc.AudioSource = null;
     @property(cc.AudioSource)
     public fail:cc.AudioSource = null;
-
-    @property(cc.Node)
-    public maquina:cc.Node = null;
-    public _maquinaAnimation:cc.Animation = null;
-
-    private swipped:boolean = false;
-    private _gm:GameManager = null;
-
+    @property(cc.AudioSource)
+    public whistle:cc.AudioSource = null;
 
     @property(cc.Node)
     public losePrefab:cc.Node = null;
 
+    @property(cc.Node)
+    public playerBr:cc.Node;
+    public _playerBrAnimation:cc.Animation;
+    @property(cc.Node)
+    public playerSu:cc.Node;
+    public _playerSuAnimation:cc.Animation;
+    @property(cc.Node)
+    public bola:cc.Node;
+    public _bolaAnimation:cc.Animation;
+    @property(cc.Node)
+    public juiz:cc.Node;
+    public _juizAnimation:cc.Animation;
+
+    @property(cc.Node)
+    public timer:cc.Node = null;
+
+
     private endGame:boolean = false;
     private totalTime:number = 5;
     private levelTime:number = 0;
+    private _gm:GameManager = null;
 
-    start() {
+    private falta:boolean = true;
+
+    start () {
       super.start();
-      if ( cc.find("GameManager") ) {
+      if (cc.find("GameManager")) {
         this._gm = cc.find("GameManager").getComponent("GameManager");
         let progressInfo = this._gm.getProgressInfo();
+        this.totalTime = progressInfo.levelTime;
         if (progressInfo.difficulty == 1) {
           this.music1.play();
         } else if (progressInfo.difficulty == 2) {
@@ -67,72 +74,80 @@ export class CartaoBancoSwipe extends BaseSwipe {
         } else {
           this.music3.play();
         }
-        this.totalTime = progressInfo.levelTime;
       } else {
         this.totalTime = 5;
       }
+
+      if (this.playerBr) this._playerBrAnimation = this.playerBr.getComponent(cc.Animation);
+      if (this.playerSu) this._playerSuAnimation = this.playerSu.getComponent(cc.Animation);
+      if (this.bola) this._bolaAnimation = this.bola.getComponent(cc.Animation);
+      if (this.juiz) this._juizAnimation = this.juiz.getComponent(cc.Animation);
+
+      let rng = Math.random();
+      this.falta =  rng < 0.5;
+      this.playAnims();
     }
 
-    update (dt) {
+    playAnims() {
+      if (this.falta) {
+        this._playerBrAnimation.play("PlayerBRCair");
+        this._playerSuAnimation.play("PlayerSUFalta");
+        this._bolaAnimation.play("BolaSUWin");
+      } else {
+        this._playerBrAnimation.play("PlayerBRDibre");
+        this._playerSuAnimation.play("PlayerSULiso");
+        this._bolaAnimation.play("BolaBRWin");
+      }
+      if (this._gm) {
+        let progressInfo = this._gm.getProgressInfo();
+        let speedup =  1 + (progressInfo.difficulty*0.1);
+
+        this._playerBrAnimation.currentClip.speed = speedup;  
+        this._playerSuAnimation.currentClip.speed =  speedup;
+        this._bolaAnimation.currentClip.speed =  speedup;
+      }
+    }
+
+    update(dt) {
       if (this.endGame) return;
+
       this.levelTime += dt;
       this.updateTimer();
-      if (this.levelTime > this.totalTime ) {
+      if (this.levelTime > this.totalTime) {
         this.timeout.play();
-        this.loseGame();
+        if (this.falta) {
+          this.loseGame();
+        } else {
+          this.winGame();
+        }
+        return;
       }
-      if (this.isSwipeUp && !this.swipped) {
-        this.swipped = true;
+
+      if (this.isSwipeUp) {
         this.doSwipeUp();
-        console.log("Identifiquei o swipeUp");
       }
     }
 
     updateTimer(){
-      if (this.timer)
       this.timer.setScale(1-(this.levelTime/this.totalTime), 1);
     }
 
     doSwipeUp() {
-      let cardSlider:cc.Node = this.node.getChildByName("CardSlider");
-      if (!cardSlider) {console.log("Não achei o cardSlider"); return;}
-
-      let cards:CartaoBancoScroll[] = cardSlider.getComponentsInChildren(CartaoBancoScroll);
-
-      let win:boolean = false;
-      let swipedCard:CartaoBancoScroll = null;
-
-      cards.forEach((card:CartaoBancoScroll) => {
-        if (card.inPosition) {
-          if (!swipedCard) {
-            swipedCard = card;
-          }
-          if (card.correctCard) { 
-            win = true; 
-            swipedCard = card; 
-          }
-        }
-      });
-
-      swipedCard.swipe();
-      if(!this._maquinaAnimation && this.maquina) {
-        this._maquinaAnimation = this.maquina.getComponent(cc.Animation);
-      }
-      if (win) {
-        this.win.play();
+      this._juizAnimation.play("JuizApitar");
+      this.whistle.play();
+      if (this.falta) {
         this.winGame();
       } else {
-        this.lose.play();
         this.loseGame();
       }
     }
 
+
     winGame() {
-      //DoWinGame;
+      console.log("winGame");
       this.endGame = true;
-      if(this._maquinaAnimation) {
-        this._maquinaAnimation.play("MaquinaCartaoPago");
-      }
+      this.win.play();
+
       if (!this._gm) return;
       let gm = this._gm;
       setTimeout(function (){
@@ -141,13 +156,13 @@ export class CartaoBancoSwipe extends BaseSwipe {
     }
 
     loseGame() {
-      //DoLoseGame;
-      this.fail.play();
+
+      console.log("loseGame");
       this.endGame = true;
+      this.fail.play();
+      this.lose.play();
       this.losePrefab.active = true;
-      if(this._maquinaAnimation) {
-        this._maquinaAnimation.play("MaquinaCartaoError");
-      }
+      
       if (!this._gm) return;
       let gm = this._gm;
       setTimeout(function (){
