@@ -17,6 +17,10 @@ export default class CartaoAniversarioSpeedTap extends BaseSpeedTap {
   @property(cc.Node)
   public card:cc.Node;
 
+  @property(cc.Node)
+  public button:cc.Node;
+  public _buttonAnimation:cc.Animation;
+
   @property()
   public startY:number = -110;
 
@@ -27,39 +31,38 @@ export default class CartaoAniversarioSpeedTap extends BaseSpeedTap {
   public mistakeTime:number = 1;
 
   private endGame:boolean = false;
-  private finished:boolean = false;
-  private finishedTime:number = 0;
+
+  private totalTime:number = 5;
+  private levelTime:number = 0;
 
   start () {
     super.start();
-    this.totalTaps = 10;
+    if (this.button)
+      this._buttonAnimation = this.button.getComponent(cc.Animation);
   }
 
   update(dt) {
-    if(this.finished && !this.endGame) {
-      this.finishedTime += dt;
-      if (this.finishedTime > this.mistakeTime) {
-        this.winGame();
-      }
+    this.levelTime += dt;
+    if (!this.endGame && this.levelTime > this.totalTime) {
+      this.loseGame();
     }
-
   }
 
   hasTapped(tapCount, progress) {
     if (this.endGame) return;
 
     if (progress == 1) {
-      this.finished = true;
-      this.finishedTime = 0;
+      this.winGame();
     }
 
     if (progress < 1) {
       console.log("rolou progresso");
       this.card.setPosition(this.card.position.x, this.startY + (progress*this.height));
+      if (this._buttonAnimation) {
+        this._buttonAnimation.play("ButtonPress");
+      }
     }
-    if (progress > 1) {
-      this.loseGame();
-    }
+
   }
 
   loseGame() {
