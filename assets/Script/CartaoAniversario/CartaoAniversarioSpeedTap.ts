@@ -16,6 +16,9 @@ import {GameManager} from '../GameManager/GameManager';
 export default class CartaoAniversarioSpeedTap extends BaseSpeedTap {
 
   @property(cc.Node)
+  public timer:cc.Node = null;
+
+  @property(cc.Node)
   public card:cc.Node = null;
   private _cardAnimation:cc.Animation = null;
 
@@ -62,9 +65,14 @@ export default class CartaoAniversarioSpeedTap extends BaseSpeedTap {
     if (this.endGame) return;
 
     this.levelTime += dt;
+    this.updateTimer();
     if (this.levelTime > this.totalTime) {
       this.loseGame();
     }
+  }
+
+  updateTimer(){
+    this.timer.setScale(1-(this.levelTime/this.totalTime), 1);
   }
 
   hasBaseTapped(tapCount, progress) {

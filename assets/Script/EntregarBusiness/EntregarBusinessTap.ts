@@ -19,6 +19,8 @@ export class EntregarBusinessTap extends BaseTap {
 
     // onLoad () {}
 
+    @property(cc.Node)
+    public timer:cc.Node = null;
 
     @property()
     public totalHands:number = 5;
@@ -50,7 +52,7 @@ export class EntregarBusinessTap extends BaseTap {
     private _gm:GameManager = null;
 
     private startHandTime:number = 0;
-    private intermissionTime:number = 0.5;
+    private intermissionTime:number = 0.3;
 
     start () {
       super.start();
@@ -70,7 +72,7 @@ export class EntregarBusinessTap extends BaseTap {
         this.totalTime = 5;
       }
 
-      this.timePerHand = (this.totalTime - (0.5*this.totalHands) ) / this.totalHands;
+      this.timePerHand = (this.totalTime - (this.intermissionTime*this.totalHands) ) / this.totalHands;
       console.log("tempos");
       console.log("totalTime"+this.totalTime);
       console.log("perhand"+this.timePerHand);
@@ -83,6 +85,7 @@ export class EntregarBusinessTap extends BaseTap {
       if (this.currentHandCount > this.totalHands || this.endGame) return;
       
       this.levelTime += dt;
+      this.updateTimer();
       if (this.levelTime > this.totalTime) {
         console.log("timeout", this.levelTime);
         this.winGame();
@@ -97,7 +100,7 @@ export class EntregarBusinessTap extends BaseTap {
             console.log("timeout opened");
             this.loseGame();
           } else {
-            this.intermissionTime = 0.5;
+            this.intermissionTime = 0.3;
             this.nextHand();
           }
         }
@@ -107,6 +110,10 @@ export class EntregarBusinessTap extends BaseTap {
           this.choseHand();
         }
       }
+    }
+
+    updateTimer(){
+      this.timer.setScale(1-(this.levelTime/this.totalTime), 1);
     }
 
     choseHand() {
@@ -144,7 +151,7 @@ export class EntregarBusinessTap extends BaseTap {
     }
 
     tapped(location:cc.Vec2) {
-      if (!this.currentHand) return;
+      if (!this.currentHand || this.endGame) return;
 
       if (this.currentHand == this.handOpen) {
         this._businessCardsAnimation.play("BusinessCardDeliver");

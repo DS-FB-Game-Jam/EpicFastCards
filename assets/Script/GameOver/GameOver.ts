@@ -70,6 +70,8 @@ export default class GameOver extends BaseSwipe {
         }).then(() => {
             // continue with the game.
             console.log("yaaaay");
+        }, (e) => {
+          console.log("error?", e);
         });
     }
 }

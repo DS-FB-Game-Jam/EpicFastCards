@@ -15,6 +15,9 @@ import {GameManager} from '../GameManager/GameManager';
 @ccclass
 export default class CartaoMemoriaRegionTap extends cc.Component {
 
+    @property(cc.Node)
+    public timer:cc.Node = null;
+
     private cards:string[] = ['memory_iron_souls', 'memory_oiram', 'memory_vasebreaker'];
     private tvAnimations:any = {
       'memory_iron_souls':'TVPlayIronSoul', 
@@ -62,10 +65,16 @@ export default class CartaoMemoriaRegionTap extends cc.Component {
     }
 
     update(dt) {
+      if (this.endGame) return;
       this.levelTime += dt;
+      this.updateTimer();
       if (!this.endGame && this.levelTime > this.totalTime) {
         this.loseGame();
       }
+    }
+
+    updateTimer(){
+      this.timer.setScale(1-(this.levelTime/this.totalTime), 1);
     }
 
     registerTap(region:string) {

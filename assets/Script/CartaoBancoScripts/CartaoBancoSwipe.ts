@@ -16,6 +16,9 @@ import {GameManager} from '../GameManager/GameManager';
 @ccclass
 export class CartaoBancoSwipe extends BaseSwipe {
 
+    @property(cc.Node)
+    public timer:cc.Node = null;
+
     @property()
     public minThreshold:number = -20;
     @property()
@@ -46,6 +49,7 @@ export class CartaoBancoSwipe extends BaseSwipe {
     update (dt) {
       if (this.endGame) return;
       this.levelTime += dt;
+      this.updateTimer();
       if (this.levelTime > this.totalTime ) {
         this.loseGame();
       }
@@ -54,6 +58,10 @@ export class CartaoBancoSwipe extends BaseSwipe {
         this.doSwipeUp();
         console.log("Identifiquei o swipeUp");
       }
+    }
+
+    updateTimer(){
+      this.timer.setScale(1-(this.levelTime/this.totalTime), 1);
     }
 
     doSwipeUp() {

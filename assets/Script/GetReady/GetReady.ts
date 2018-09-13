@@ -13,8 +13,11 @@ const {ccclass, property} = cc._decorator;
 @ccclass
 export default class GetReady extends cc.Component {
 
-    // @property(cc.Label)
-    // labelScore: cc.Label = null;
+    @property(cc.Label)
+    labelTimer: cc.Label = null;
+
+    @property(cc.Node)
+    labelMaisRapido: cc.Node = null;
 
     // @property(cc.Label)
     // labelHP: cc.Label = null;
@@ -34,7 +37,7 @@ export default class GetReady extends cc.Component {
     private _disquete3Animation: cc.Animation = null;
 
     private _gm;
-    private _countDownMax:number = 2;
+    private _countDownMax:number = 3;
     private _countDown:number = -1;
 
     // LIFE-CYCLE CALLBACKS:
@@ -58,6 +61,10 @@ export default class GetReady extends cc.Component {
       if (info.lost) {
         this._charAnimation.play("CharMad");
       }
+      if (info.levelUp) {
+        this.labelMaisRapido.active = true;
+      }
+
       this._disquete1Animation.play("DisqueteInteiroIddle");
       if (info.hp == 1) {
         if (info.lost){
@@ -87,10 +94,10 @@ export default class GetReady extends cc.Component {
     update (dt) {
       if(this._countDown >= 0 ) {
         this._countDown -= dt;
-        // this.labelTimer.string = ""+Math.floor(this._countDown);
+        this.labelTimer.string = ""+Math.floor(this._countDown);
 
         if(this._countDown <= 0) {
-          // this.labelTimer.string = "0";
+          this.labelTimer.string = "0";
           this._gm.loadNextLevel();
         }
       }
