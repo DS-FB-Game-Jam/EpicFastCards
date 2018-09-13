@@ -38,9 +38,11 @@ export class CartaoBancoScroll extends cc.Component {
       this._cartaoBancoSwipe = this.node.parent.parent.getComponent(CartaoBancoSwipe);
       this.minThreshold = this._cartaoBancoSwipe.minThreshold;
       this.maxThreshold = this._cartaoBancoSwipe.maxThreshold;
-      this._gm = cc.find("GameManager").getComponent("GameManager");
-      let info = this._gm.getProgressInfo();
-      this.scrollSpeed = this.scrollSpeed * (1+ (0.3*info.difficulty))
+      if (cc.find("GameManager")) {
+        this._gm = cc.find("GameManager").getComponent("GameManager");
+        let info = this._gm.getProgressInfo();
+        this.scrollSpeed = this.scrollSpeed * (1+ (0.1*info.difficulty))
+      }
     }
 
     update (dt) {

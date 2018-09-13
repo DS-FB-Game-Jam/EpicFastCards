@@ -13,8 +13,25 @@ const {ccclass, property} = cc._decorator;
 @ccclass
 export default class GetReady extends cc.Component {
 
+
+    @property(cc.AudioSource)
+    public music1:cc.AudioSource = null;
+    @property(cc.AudioSource)
+    public music2:cc.AudioSource = null;
+    @property(cc.AudioSource)
+    public music3:cc.AudioSource = null;
+    @property(cc.AudioSource)
+    public lifeDown:cc.AudioSource = null;
+    @property(cc.AudioSource)
+    public thumbsUp:cc.AudioSource = null;
+
     @property(cc.Label)
-    labelTimer: cc.Label = null;
+    labelTimerD: cc.Label = null;
+    @property(cc.Label)
+    labelTimerE: cc.Label = null;
+    
+    @property(cc.Label)
+    scoreLabel: cc.Label = null;
 
     @property(cc.Node)
     labelMaisRapido: cc.Node = null;
@@ -64,12 +81,25 @@ export default class GetReady extends cc.Component {
       // this.labelScore.string = "Score: "+info.score;
       // this.labelHP.string = "HP: "+info.hp;
       if (info.lost) {
+        this.lifeDown.play();
         this._charAnimation.play("CharMad");
       } else {
+        this.thumbsUp.play();
         this._joiaAnimation.play("JoiaAppear");
       }
       if (info.levelUp) {
         this.labelMaisRapido.active = true;
+      }
+      if (info.score) {
+      	this.scoreLabel.string = info.score+" Pts."
+      }
+
+      if (info.difficulty == 1) {
+        this.music1.play();
+      } else if (info.difficulty == 2) {
+        this.music2.play();
+      } else {
+        this.music3.play();
       }
 
       this._disquete1Animation.play("DisqueteInteiroIddle");
@@ -101,10 +131,12 @@ export default class GetReady extends cc.Component {
     update (dt) {
       if(this._countDown >= 0 ) {
         this._countDown -= dt;
-        this.labelTimer.string = ""+Math.floor(this._countDown);
+        this.labelTimerD.string = ""+Math.floor(this._countDown);
+        this.labelTimerE.string = ""+Math.floor(this._countDown);
 
         if(this._countDown <= 0) {
-          this.labelTimer.string = "0";
+          this.labelTimerD.string = "0";
+          this.labelTimerE.string = "0";
           this._gm.loadNextLevel();
         }
       }

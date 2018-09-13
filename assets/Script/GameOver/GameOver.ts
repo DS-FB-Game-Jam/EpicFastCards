@@ -44,7 +44,7 @@ export default class GameOver extends BaseSwipe {
 
     setInfo() {
       this.info = this._gm.getProgressInfo();
-      this.labelScore.string = "Score: "+this.info.score;
+      this.labelScore.string = ""+this.info.score;
       this.postScore(this.info.score);
     }
 

@@ -24,6 +24,22 @@ export class CartaoBancoSwipe extends BaseSwipe {
     @property()
     public maxThreshold:number = 20;
 
+
+    @property(cc.AudioSource)
+    public music1:cc.AudioSource = null;
+    @property(cc.AudioSource)
+    public music2:cc.AudioSource = null;
+    @property(cc.AudioSource)
+    public music3:cc.AudioSource = null;
+    @property(cc.AudioSource)
+    public timeout:cc.AudioSource = null;
+    @property(cc.AudioSource)
+    public win:cc.AudioSource = null;
+    @property(cc.AudioSource)
+    public lose:cc.AudioSource = null;
+    @property(cc.AudioSource)
+    public fail:cc.AudioSource = null;
+
     @property(cc.Node)
     public maquina:cc.Node = null;
     public _maquinaAnimation:cc.Animation = null;
@@ -41,9 +57,20 @@ export class CartaoBancoSwipe extends BaseSwipe {
 
     start() {
       super.start();
-      this._gm = cc.find("GameManager").getComponent("GameManager");
-      let progressInfo = this._gm.getProgressInfo();
-      this.totalTime = progressInfo.levelTime;
+      if ( cc.find("GameManager") ) {
+        this._gm = cc.find("GameManager").getComponent("GameManager");
+        let progressInfo = this._gm.getProgressInfo();
+        if (progressInfo.difficulty == 1) {
+          this.music1.play();
+        } else if (progressInfo.difficulty == 2) {
+          this.music2.play();
+        } else {
+          this.music3.play();
+        }
+        this.totalTime = progressInfo.levelTime;
+      } else {
+        this.totalTime = 5;
+      }
     }
 
     update (dt) {
@@ -51,6 +78,7 @@ export class CartaoBancoSwipe extends BaseSwipe {
       this.levelTime += dt;
       this.updateTimer();
       if (this.levelTime > this.totalTime ) {
+        this.timeout.play();
         this.loseGame();
       }
       if (this.isSwipeUp && !this.swipped) {
@@ -90,8 +118,10 @@ export class CartaoBancoSwipe extends BaseSwipe {
         this._maquinaAnimation = this.maquina.getComponent(cc.Animation);
       }
       if (win) {
+        this.win.play();
         this.winGame();
       } else {
+        this.lose.play();
         this.loseGame();
       }
     }
@@ -111,6 +141,7 @@ export class CartaoBancoSwipe extends BaseSwipe {
 
     loseGame() {
       //DoLoseGame;
+      this.fail.play();
       this.endGame = true;
       this.losePrefab.active = true;
       if(this._maquinaAnimation) {
