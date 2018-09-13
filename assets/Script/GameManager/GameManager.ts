@@ -23,7 +23,9 @@ export class GameManager extends cc.Component {
     private _lastLevel: string;
     private _currentLevel:number = 0;
     private _currentHP:number = 3;
+    private _lost:boolean = false;
     private _currentDifficulty:number = 1;
+    private _levelUp:boolean = false;
     private _currentSessionSize:number = 3;
     private _score:number = 0;
     // LIFE-CYCLE CALLBACKS:
@@ -55,6 +57,14 @@ export class GameManager extends cc.Component {
       } else {
         this._score++;
       }
+      
+      if(this._currentLevel+1 >= this._currentSessionSize) {
+        this._levelUp = true;
+      } else {
+        this._levelUp = false;
+      }
+
+      this._lost = fail;
 
       if(this._currentHP <= 0) {
         this.gameOver();
@@ -72,7 +82,6 @@ export class GameManager extends cc.Component {
       } else {
         console.log("2");
         this._currentDifficulty++;
-
         this._currentLevel = 0;
         this.loadLevel();
       }
@@ -89,12 +98,17 @@ export class GameManager extends cc.Component {
     }
 
     getProgressInfo() {
-      return {difficulty: this._currentDifficulty, hp: this._currentHP, score:this._score, levelTime:5};
+      return {
+        difficulty: this._currentDifficulty,
+        levelUp: this._levelUp,
+        hp: this._currentHP,
+        score: this._score,
+        levelTime: 5 - (this._currentDifficulty*0.5),
+        lost: this._lost
+      };
     }
 
     //END
-
-
 
     resetGameValues() {
       this._score = 0;
