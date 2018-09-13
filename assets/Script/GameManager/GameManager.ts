@@ -121,16 +121,16 @@ export class GameManager extends cc.Component {
       console.log("loadLevel");
       let size = this._levels.length;
 
-      // for(;;) {
-        let i = Math.floor(Math.random() * size);
+      for(;;) {
+        let i = Math.floor(Math.random() * (size-1));
         let level = this._levels[i];
-        // if(level != this._lastLevel) {
+        if(level != this._lastLevel) {
           this._lastLevel = level;
           console.log("loading", level);
           cc.director.loadScene(level);
-          // break;
-        // }
-      // }
+          break;
+        }
+      }
     }
 
     
