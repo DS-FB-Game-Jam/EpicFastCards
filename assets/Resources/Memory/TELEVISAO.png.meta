@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "eae36d1d-0277-4579-8a1e-5a9407dd7330",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "TELEVISAO": {
+      "ver": "1.0.3",
+      "uuid": "541619bd-f6b0-4551-962c-be63cd03fff5",
+      "rawTextureUuid": "eae36d1d-0277-4579-8a1e-5a9407dd7330",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 720,
+      "height": 504,
+      "rawWidth": 720,
+      "rawHeight": 504,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

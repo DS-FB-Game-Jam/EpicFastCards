@@ -1,0 +1,21 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "MemoryCardsIddle",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "paths": {
+      "memory_vasebreaker": {
+        "props": {
+          "position": [],
+          "rotation": []
+        }
+      }
+    }
+  },
+  "events": []
+}

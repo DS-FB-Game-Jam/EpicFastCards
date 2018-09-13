@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "3465b95e-e042-4a09-a3ab-86604293d8f4",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "televisao_oiram": {
+      "ver": "1.0.3",
+      "uuid": "700f811c-287f-4975-bbe7-9c98637aa624",
+      "rawTextureUuid": "3465b95e-e042-4a09-a3ab-86604293d8f4",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 613,
+      "height": 365,
+      "rawWidth": 613,
+      "rawHeight": 365,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

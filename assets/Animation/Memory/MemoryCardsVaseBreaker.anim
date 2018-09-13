@@ -1,0 +1,67 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "MemoryCardsVaseBreaker",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.6666666666666666,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "paths": {
+      "memory_vasebreaker": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                77.9,
+                -175.1
+              ],
+              "motionPath": [
+                [
+                  38.4,
+                  -166.5,
+                  54.3,
+                  -174.1,
+                  23.1,
+                  -159.2
+                ]
+              ]
+            },
+            {
+              "frame": 0.3333333333333333,
+              "value": [
+                15.4,
+                -145.4
+              ],
+              "motionPath": []
+            },
+            {
+              "frame": 0.6666666666666666,
+              "value": [
+                6.9,
+                -92
+              ]
+            }
+          ],
+          "rotation": [
+            {
+              "frame": 0,
+              "value": -30
+            },
+            {
+              "frame": 0.3333333333333333,
+              "value": -19
+            },
+            {
+              "frame": 0.6666666666666666,
+              "value": 0
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": []
+}

@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "04050d04-0e01-4aa7-b752-2d756f7f8d6e",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "televisao_vasebreaker": {
+      "ver": "1.0.3",
+      "uuid": "be3e2ce7-880b-42e4-a8c6-9ea13f25f32f",
+      "rawTextureUuid": "04050d04-0e01-4aa7-b752-2d756f7f8d6e",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 613,
+      "height": 365,
+      "rawWidth": 613,
+      "rawHeight": 365,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

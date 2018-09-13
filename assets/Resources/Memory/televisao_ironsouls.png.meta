@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "6cf7b162-64cb-4a4b-b10a-5a12d7c023fc",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "televisao_ironsouls": {
+      "ver": "1.0.3",
+      "uuid": "af6bb90c-dbe9-446d-968e-a9a738eb2260",
+      "rawTextureUuid": "6cf7b162-64cb-4a4b-b10a-5a12d7c023fc",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 613,
+      "height": 365,
+      "rawWidth": 613,
+      "rawHeight": 365,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

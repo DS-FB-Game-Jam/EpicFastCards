@@ -1,0 +1,45 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "MemoryCardsOIRam",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.6666666666666666,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "paths": {
+      "memory_oiram": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                7.2,
+                -223.7
+              ]
+            },
+            {
+              "frame": 0.6666666666666666,
+              "value": [
+                -0.7,
+                -92.5
+              ]
+            }
+          ],
+          "rotation": [
+            {
+              "frame": 0,
+              "value": -14
+            },
+            {
+              "frame": 0.6666666666666666,
+              "value": 0
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": []
+}

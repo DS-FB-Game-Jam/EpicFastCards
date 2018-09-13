@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "ede48214-4942-4417-befb-63e27cad3118",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "televisao_slot": {
+      "ver": "1.0.3",
+      "uuid": "653a8a48-4286-4d63-afa7-ce8bcc98ea6c",
+      "rawTextureUuid": "ede48214-4942-4417-befb-63e27cad3118",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 155,
+      "height": 28,
+      "rawWidth": 155,
+      "rawHeight": 28,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 31,
+      "borderRight": 30,
+      "subMetas": {}
+    }
+  }
+}
