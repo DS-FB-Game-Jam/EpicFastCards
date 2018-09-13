@@ -45,9 +45,7 @@ export default class CartaoMemoriaRegionTap extends cc.Component {
       if (this.tv)
         this._tvAnimation = this.tv.getComponent(cc.Animation);
       let idx = Math.round(Math.random()*2);
-      console.log("idx manneiro:", idx);
       this.selectedCard = this.cards[ idx ];
-      console.log("mandando a animação da tv", this.cards);
       this._tvAnimation.play(this.tvAnimations[this.selectedCard]);
     }
 
