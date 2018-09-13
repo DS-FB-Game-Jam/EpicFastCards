@@ -12,7 +12,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "EntregueHUD",
+    "_name": "BarraMaisRapido",
     "_objFlags": 0,
     "_parent": null,
     "_children": [
@@ -24,7 +24,7 @@
       }
     ],
     "_active": true,
-    "_level": 2,
+    "_level": 1,
     "_components": [
       {
         "__id__": 8
@@ -53,8 +53,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
+      "x": 160,
+      "y": 320,
       "z": 0
     },
     "_scale": {
@@ -80,7 +80,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "engregue",
+    "_name": "barra_laranja",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1
@@ -106,8 +106,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 115,
-      "height": 130
+      "width": 319,
+      "height": 49
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -152,7 +152,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "bc36ee7d-e2b4-4e40-aadc-87a8d6de3eff"
+      "__uuid__": "3c28bcaf-28d8-4cd7-80d0-d070ae8c7898"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -167,7 +167,7 @@
     "_isTrimmedMode": true,
     "_state": 0,
     "_atlas": null,
-    "_id": "174J2EJBJIXpT4IL95GdrK"
+    "_id": "28bfbs3sVOiIOoSg0xzPwu"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -175,14 +175,14 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "72a9d6fe-c756-4c3a-ad4f-6383616bf0ff"
+      "__id__": 0
     },
-    "fileId": "444B+9stBMbKZgGXylZ+Qj",
+    "fileId": "c3o7FgO7VM/qzNIOc6FuVM",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "tap_icon",
+    "_name": "New Label",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1
@@ -208,18 +208,18 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 30,
-      "height": 30
+      "width": 189.87,
+      "height": 40
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
+      "x": 0.5139505080745432,
+      "y": 0.232446133724509
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 71.6,
-      "y": -61.9,
+      "x": 8.5,
+      "y": -11.4,
       "z": 0
     },
     "_scale": {
@@ -244,32 +244,31 @@
     "_id": ""
   },
   {
-    "__type__": "cc.Sprite",
+    "__type__": "cc.Label",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 5
     },
     "_enabled": true,
-    "_srcBlendFactor": 770,
+    "_srcBlendFactor": 1,
     "_dstBlendFactor": 771,
-    "_spriteFrame": {
-      "__uuid__": "3643abfd-edb2-4af2-b88c-5566787c4e2c"
+    "_useOriginalSize": false,
+    "_string": "MAIS RÁPIDO",
+    "_N$string": "MAIS RÁPIDO",
+    "_fontSize": 20.199999999999836,
+    "_lineHeight": 40,
+    "_enableWrapText": true,
+    "_N$file": {
+      "__uuid__": "67495d1f-3478-422b-bc0c-075bc336cb04"
     },
-    "_type": 0,
-    "_sizeMode": 0,
-    "_fillType": 0,
-    "_fillCenter": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_fillStart": 0,
-    "_fillRange": 0,
-    "_isTrimmedMode": true,
-    "_state": 0,
-    "_atlas": null,
-    "_id": "44CngRhNZCBpg4ZohzLpZM"
+    "_isSystemFontUsed": false,
+    "_spacingX": 0,
+    "_N$horizontalAlign": 1,
+    "_N$verticalAlign": 1,
+    "_N$fontFamily": "Arial",
+    "_N$overflow": 0,
+    "_id": "95tfqJJY9EQJQrTsvL2sQg"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -277,9 +276,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "72a9d6fe-c756-4c3a-ad4f-6383616bf0ff"
+      "__id__": 0
     },
-    "fileId": "19H4n97K5OP6cvyxTsALBB",
+    "fileId": "ddREnPH4xMSbmT2OObyEAe",
     "sync": false
   },
   {
@@ -290,16 +289,14 @@
       "__id__": 1
     },
     "_enabled": true,
-    "_defaultClip": {
-      "__uuid__": "43948961-33fd-41d1-8f60-e9733a74eb4e"
-    },
+    "_defaultClip": null,
     "_clips": [
       {
-        "__uuid__": "43948961-33fd-41d1-8f60-e9733a74eb4e"
+        "__uuid__": "d8b90cd1-4c7d-4c17-8c93-e7eaf6874922"
       }
     ],
-    "playOnLoad": true,
-    "_id": "eae37ZfBJPyYLG5gnXzGfO"
+    "playOnLoad": false,
+    "_id": "eaqazqohRLBpCFl2ZPio1E"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -307,9 +304,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "72a9d6fe-c756-4c3a-ad4f-6383616bf0ff"
+      "__id__": 0
     },
-    "fileId": "74KRDeqAZEnr5C5OD8f+EE",
+    "fileId": "efQ9b44GBLoqnlIfADI47K",
     "sync": false
   }
 ]
