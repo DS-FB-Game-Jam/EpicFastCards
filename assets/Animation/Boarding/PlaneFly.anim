@@ -1,0 +1,55 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "PlaneFly",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.6666666666666666,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "paths": {
+      "boarding_aviao": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                0,
+                0
+              ],
+              "motionPath": [
+                [
+                  233,
+                  140,
+                  109,
+                  90,
+                  364,
+                  193
+                ]
+              ]
+            },
+            {
+              "frame": 0.6666666666666666,
+              "value": [
+                510,
+                205
+              ]
+            }
+          ],
+          "rotation": [
+            {
+              "frame": 0,
+              "value": -14
+            },
+            {
+              "frame": 0.6666666666666666,
+              "value": 12
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": []
+}
