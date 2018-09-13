@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.5229166666666667,
-      "y": 0.5229166666666667,
+      "x": 0.9603841145833334,
+      "y": 0.9603841145833334,
       "z": 1
     },
     "_quat": {
@@ -52,7 +52,7 @@
       "z": 0,
       "w": 1
     },
-    "_localZOrder": 617,
+    "_zIndex": 0,
     "groupIndex": 0,
     "autoReleaseAssets": false,
     "_id": "03b560b1-de11-40c5-8e4b-cf9e0fbd3a97"
@@ -115,16 +115,19 @@
       },
       {
         "__id__": 63
+      },
+      {
+        "__id__": 66
       }
     ],
     "_active": true,
     "_level": 0,
     "_components": [
       {
-        "__id__": 66
+        "__id__": 70
       },
       {
-        "__id__": 67
+        "__id__": 71
       }
     ],
     "_prefab": null,
@@ -169,7 +172,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_localZOrder": 618,
+    "_zIndex": 0,
     "groupIndex": 0,
     "_id": "6cJTFE185Cook7rXggC+hU"
   },
@@ -230,7 +233,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_localZOrder": 619,
+    "_zIndex": 0,
     "groupIndex": 0,
     "_id": "757IwZ4B1LCKQc9Cv+rxex"
   },
@@ -313,7 +316,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_localZOrder": 620,
+    "_zIndex": 0,
     "groupIndex": 0,
     "_id": "88IF1suG5JsapZGhBnAlRv"
   },
@@ -404,7 +407,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_localZOrder": 621,
+    "_zIndex": 0,
     "groupIndex": 0,
     "_id": "e8xWi+/QhBUZE0p3yLxRp/"
   },
@@ -510,7 +513,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_localZOrder": 622,
+    "_zIndex": 0,
     "groupIndex": 0,
     "_id": "4cs8RTjd9Hi6Yfb4GqCgrI"
   },
@@ -573,7 +576,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_localZOrder": 623,
+    "_zIndex": 0,
     "groupIndex": 0,
     "_id": "97FQyVtCNL3KU2ECoVHMgC"
   },
@@ -710,7 +713,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_localZOrder": 624,
+    "_zIndex": 0,
     "groupIndex": 0,
     "_id": "2bg/5lnQJMqpy8wI+sNjnn"
   },
@@ -773,7 +776,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_localZOrder": 625,
+    "_zIndex": 0,
     "groupIndex": 0,
     "_id": "a3koxjGVdFfYK2S7daDHZH"
   },
@@ -910,7 +913,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_localZOrder": 626,
+    "_zIndex": 0,
     "groupIndex": 0,
     "_id": "3aJpkyivpPTLk/pxFu/SFO"
   },
@@ -973,7 +976,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_localZOrder": 627,
+    "_zIndex": 0,
     "groupIndex": 0,
     "_id": "8efg7sJMZLOJahmnFErGK1"
   },
@@ -1110,7 +1113,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_localZOrder": 628,
+    "_zIndex": 0,
     "groupIndex": 0,
     "_id": "02GHr34QBKrLm3jDUq25UP"
   },
@@ -1173,7 +1176,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_localZOrder": 629,
+    "_zIndex": 0,
     "groupIndex": 0,
     "_id": "12pEJfFjdOpI6bOM7SdFNJ"
   },
@@ -1312,7 +1315,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_localZOrder": 630,
+    "_zIndex": 0,
     "groupIndex": 0,
     "_id": "a3TBuP8KJGELQeoPru4cNq"
   },
@@ -1375,7 +1378,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_localZOrder": 631,
+    "_zIndex": 0,
     "groupIndex": 0,
     "_id": "51HYtlxY9NW6IFRUYedHWj"
   },
@@ -1507,7 +1510,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_localZOrder": 632,
+    "_zIndex": 0,
     "groupIndex": 0,
     "_id": "85D4xwoA1J1rklPpH8tph2"
   },
@@ -1599,7 +1602,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_localZOrder": 633,
+    "_zIndex": 0,
     "groupIndex": 0,
     "_id": "ffmmSyq2NDg4XaZk+iEWEF"
   },
@@ -1691,7 +1694,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_localZOrder": 634,
+    "_zIndex": 0,
     "groupIndex": 0,
     "_id": "9309NuMAtIQp1Swps++wSD"
   },
@@ -1783,7 +1786,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_localZOrder": 635,
+    "_zIndex": 0,
     "groupIndex": 0,
     "_id": "a839CDtNNNg5WmBBkH12E6"
   },
@@ -1875,7 +1878,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_localZOrder": 636,
+    "_zIndex": 0,
     "groupIndex": 0,
     "_id": "3dg/e06HBNY4Zvre4VoaJ6"
   },
@@ -1967,7 +1970,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_localZOrder": 637,
+    "_zIndex": 0,
     "groupIndex": 0,
     "_id": "7e80pppt9PlbaziCHDLgr7"
   },
@@ -2059,7 +2062,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_localZOrder": 638,
+    "_zIndex": 0,
     "groupIndex": 0,
     "_id": "59rcklfrtOIL+Kiw4qJdeB"
   },
@@ -2149,7 +2152,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_localZOrder": 639,
+    "_zIndex": 0,
     "groupIndex": 0,
     "_id": "08Ih63Y9NKfK0rvMFclAux"
   },
@@ -2230,7 +2233,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_localZOrder": 640,
+    "_zIndex": 0,
     "groupIndex": 0,
     "_id": "7bcuRQd9lKj5r4q1MTCauL"
   },
@@ -2262,6 +2265,179 @@
     },
     "fileId": "f6ot6OXf9C/YmdGNgMFL2Y",
     "sync": false
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "ArbitreHUD",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 2
+    },
+    "_children": [
+      {
+        "__id__": 67
+      }
+    ],
+    "_active": true,
+    "_level": 1,
+    "_components": [
+      {
+        "__id__": 69
+      }
+    ],
+    "_prefab": null,
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 0,
+      "height": 0
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_position": {
+      "__type__": "cc.Vec3",
+      "x": -118,
+      "y": -121,
+      "z": 0
+    },
+    "_scale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_quat": {
+      "__type__": "cc.Quat",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 1
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_zIndex": 0,
+    "groupIndex": 0,
+    "_id": "e6oGSwfqJFzrlUWhmU8/aX"
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "futebol_arbitre",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 66
+    },
+    "_children": [],
+    "_active": true,
+    "_level": 2,
+    "_components": [
+      {
+        "__id__": 68
+      }
+    ],
+    "_prefab": null,
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 33,
+      "height": 209
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_position": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": -4.718044137193394e-14,
+      "z": 0
+    },
+    "_scale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_quat": {
+      "__type__": "cc.Quat",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 1
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_zIndex": 0,
+    "groupIndex": 0,
+    "_id": "86i5wL1etEfpygeLsAXWYF"
+  },
+  {
+    "__type__": "cc.Sprite",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 67
+    },
+    "_enabled": true,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_spriteFrame": {
+      "__uuid__": "3201b8d7-9c38-451e-a548-7e1bde2d9aa1"
+    },
+    "_type": 0,
+    "_sizeMode": 0,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_state": 0,
+    "_atlas": null,
+    "_id": "64E7EpillAro/TXPEr/bTW"
+  },
+  {
+    "__type__": "cc.Animation",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 66
+    },
+    "_enabled": true,
+    "_defaultClip": {
+      "__uuid__": "a7178eab-d1ea-42eb-9707-869e8a52ecf3"
+    },
+    "_clips": [
+      {
+        "__uuid__": "a7178eab-d1ea-42eb-9707-869e8a52ecf3"
+      }
+    ],
+    "playOnLoad": true,
+    "_id": "dbrod4+8BJaIcicBAhfMa1"
   },
   {
     "__type__": "cc.Canvas",
