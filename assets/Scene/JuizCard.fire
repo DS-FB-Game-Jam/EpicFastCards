@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.9603841145833334,
-      "y": 0.9603841145833334,
+      "x": 0.4687174479166667,
+      "y": 0.4687174479166667,
       "z": 1
     },
     "_quat": {
@@ -52,7 +52,7 @@
       "z": 0,
       "w": 1
     },
-    "_zIndex": 0,
+    "_localZOrder": 226,
     "groupIndex": 0,
     "autoReleaseAssets": false,
     "_id": "03b560b1-de11-40c5-8e4b-cf9e0fbd3a97"
@@ -172,7 +172,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_zIndex": 0,
+    "_localZOrder": 227,
     "groupIndex": 0,
     "_id": "6cJTFE185Cook7rXggC+hU"
   },
@@ -233,7 +233,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_zIndex": 0,
+    "_localZOrder": 228,
     "groupIndex": 0,
     "_id": "757IwZ4B1LCKQc9Cv+rxex"
   },
@@ -316,7 +316,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_zIndex": 0,
+    "_localZOrder": 229,
     "groupIndex": 0,
     "_id": "88IF1suG5JsapZGhBnAlRv"
   },
@@ -407,7 +407,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_zIndex": 0,
+    "_localZOrder": 230,
     "groupIndex": 0,
     "_id": "e8xWi+/QhBUZE0p3yLxRp/"
   },
@@ -513,7 +513,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_zIndex": 0,
+    "_localZOrder": 231,
     "groupIndex": 0,
     "_id": "4cs8RTjd9Hi6Yfb4GqCgrI"
   },
@@ -576,7 +576,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_zIndex": 0,
+    "_localZOrder": 232,
     "groupIndex": 0,
     "_id": "97FQyVtCNL3KU2ECoVHMgC"
   },
@@ -713,7 +713,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_zIndex": 0,
+    "_localZOrder": 233,
     "groupIndex": 0,
     "_id": "2bg/5lnQJMqpy8wI+sNjnn"
   },
@@ -776,7 +776,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_zIndex": 0,
+    "_localZOrder": 234,
     "groupIndex": 0,
     "_id": "a3koxjGVdFfYK2S7daDHZH"
   },
@@ -913,7 +913,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_zIndex": 0,
+    "_localZOrder": 235,
     "groupIndex": 0,
     "_id": "3aJpkyivpPTLk/pxFu/SFO"
   },
@@ -976,7 +976,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_zIndex": 0,
+    "_localZOrder": 236,
     "groupIndex": 0,
     "_id": "8efg7sJMZLOJahmnFErGK1"
   },
@@ -1113,7 +1113,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_zIndex": 0,
+    "_localZOrder": 237,
     "groupIndex": 0,
     "_id": "02GHr34QBKrLm3jDUq25UP"
   },
@@ -1176,7 +1176,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_zIndex": 0,
+    "_localZOrder": 238,
     "groupIndex": 0,
     "_id": "12pEJfFjdOpI6bOM7SdFNJ"
   },
@@ -1315,7 +1315,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_zIndex": 0,
+    "_localZOrder": 239,
     "groupIndex": 0,
     "_id": "a3TBuP8KJGELQeoPru4cNq"
   },
@@ -1378,7 +1378,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_zIndex": 0,
+    "_localZOrder": 240,
     "groupIndex": 0,
     "_id": "51HYtlxY9NW6IFRUYedHWj"
   },
@@ -1510,7 +1510,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_zIndex": 0,
+    "_localZOrder": 241,
     "groupIndex": 0,
     "_id": "85D4xwoA1J1rklPpH8tph2"
   },
@@ -1602,7 +1602,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_zIndex": 0,
+    "_localZOrder": 242,
     "groupIndex": 0,
     "_id": "ffmmSyq2NDg4XaZk+iEWEF"
   },
@@ -1694,7 +1694,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_zIndex": 0,
+    "_localZOrder": 243,
     "groupIndex": 0,
     "_id": "9309NuMAtIQp1Swps++wSD"
   },
@@ -1786,7 +1786,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_zIndex": 0,
+    "_localZOrder": 244,
     "groupIndex": 0,
     "_id": "a839CDtNNNg5WmBBkH12E6"
   },
@@ -1878,7 +1878,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_zIndex": 0,
+    "_localZOrder": 245,
     "groupIndex": 0,
     "_id": "3dg/e06HBNY4Zvre4VoaJ6"
   },
@@ -1970,7 +1970,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_zIndex": 0,
+    "_localZOrder": 246,
     "groupIndex": 0,
     "_id": "7e80pppt9PlbaziCHDLgr7"
   },
@@ -2062,7 +2062,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_zIndex": 0,
+    "_localZOrder": 247,
     "groupIndex": 0,
     "_id": "59rcklfrtOIL+Kiw4qJdeB"
   },
@@ -2152,7 +2152,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_zIndex": 0,
+    "_localZOrder": 248,
     "groupIndex": 0,
     "_id": "08Ih63Y9NKfK0rvMFclAux"
   },
@@ -2233,7 +2233,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_zIndex": 0,
+    "_localZOrder": 249,
     "groupIndex": 0,
     "_id": "7bcuRQd9lKj5r4q1MTCauL"
   },
@@ -2327,7 +2327,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_zIndex": 0,
+    "_localZOrder": 250,
     "groupIndex": 0,
     "_id": "e6oGSwfqJFzrlUWhmU8/aX"
   },
@@ -2388,7 +2388,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_zIndex": 0,
+    "_localZOrder": 251,
     "groupIndex": 0,
     "_id": "86i5wL1etEfpygeLsAXWYF"
   },
@@ -2467,7 +2467,7 @@
     "label": null,
     "touchStartPoint": null,
     "touchLastPoint": null,
-    "touchThreshold": 15,
+    "touchThreshold": 75,
     "isSwipeLeft": false,
     "isSwipeRight": false,
     "isSwipeUp": false,

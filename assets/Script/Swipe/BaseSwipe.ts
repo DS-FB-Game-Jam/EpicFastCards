@@ -23,7 +23,7 @@ export class BaseSwipe extends cc.Component {
     public touchLastPoint: cc.Vec2 = null;
 
     @property()
-    public touchThreshold: number = 15;
+    public touchThreshold: number = 75;
     @property()
     public isSwipeLeft:boolean = false;
     @property()    

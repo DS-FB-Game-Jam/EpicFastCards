@@ -83,9 +83,10 @@ export default class BoardingPassRegionTap extends RegionTap {
         this._gm = cc.find("GameManager").getComponent("GameManager");
         let progressInfo = this._gm.getProgressInfo();
         this.totalTime = progressInfo.levelTime;
-        if (progressInfo.difficulty == 1) {
+        console.log(this.totalTime);
+        if (progressInfo.difficulty/2 <= 1) {
           this.music1.play();
-        } else if (progressInfo.difficulty == 2) {
+        } else if (progressInfo.difficulty/2 <= 2) {
           this.music2.play();
         } else {
           this.music3.play();

@@ -94,9 +94,9 @@ export default class GetReady extends cc.Component {
       	this.scoreLabel.string = info.score+" Pts."
       }
 
-      if (info.difficulty == 1) {
+      if (info.difficulty/2 <= 1) {
         this.music1.play();
-      } else if (info.difficulty == 2) {
+      } else if (info.difficulty/2 <= 2) {
         this.music2.play();
       } else {
         this.music3.play();

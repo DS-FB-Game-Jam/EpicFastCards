@@ -60,9 +60,9 @@ export class CartaoBancoSwipe extends BaseSwipe {
       if ( cc.find("GameManager") ) {
         this._gm = cc.find("GameManager").getComponent("GameManager");
         let progressInfo = this._gm.getProgressInfo();
-        if (progressInfo.difficulty == 1) {
+        if (progressInfo.difficulty/2 <= 1) {
           this.music1.play();
-        } else if (progressInfo.difficulty == 2) {
+        } else if (progressInfo.difficulty/2 <= 2) {
           this.music2.play();
         } else {
           this.music3.play();

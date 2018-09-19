@@ -30,6 +30,7 @@ export class GameManager extends cc.Component {
     private _levelUp:boolean = false;
     private _currentSessionSize:number = 3;
     private _score:number = 0;
+    private _baseLevelTime:number = 7;
     // LIFE-CYCLE CALLBACKS:
 
     // onLoad () {}
@@ -105,9 +106,16 @@ export class GameManager extends cc.Component {
         levelUp: this._levelUp,
         hp: this._currentHP,
         score: this._score,
-        levelTime: 7 - (this._currentDifficulty*0.5),
+        levelTime: this.getLevelTime(),
         lost: this._lost
       };
+    }
+
+    getLevelTime() {
+      let totalTime = this._baseLevelTime - (this._currentDifficulty*0.35)
+      if (totalTime < 2) totalTime = 2;
+      console.log("TotalTime now is: "+totalTime);
+      return totalTime;
     }
 
     //END
