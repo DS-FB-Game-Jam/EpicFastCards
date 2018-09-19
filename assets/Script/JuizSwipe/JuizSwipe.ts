@@ -38,17 +38,17 @@ export default class JuizSwipe extends BaseSwipe {
     public losePrefab:cc.Node = null;
 
     @property(cc.Node)
-    public playerBr:cc.Node;
-    public _playerBrAnimation:cc.Animation;
+    public playerBr:cc.Node = null;
+    public _playerBrAnimation:cc.Animation = null;
     @property(cc.Node)
-    public playerSu:cc.Node;
-    public _playerSuAnimation:cc.Animation;
+    public playerSu:cc.Node = null;
+    public _playerSuAnimation:cc.Animation = null;
     @property(cc.Node)
-    public bola:cc.Node;
-    public _bolaAnimation:cc.Animation;
+    public bola:cc.Node = null;
+    public _bolaAnimation:cc.Animation = null;
     @property(cc.Node)
-    public juiz:cc.Node;
-    public _juizAnimation:cc.Animation;
+    public juiz:cc.Node = null;
+    public _juizAnimation:cc.Animation = null;
 
     @property(cc.Node)
     public timer:cc.Node = null;

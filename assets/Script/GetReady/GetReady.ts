@@ -66,7 +66,8 @@ export default class GetReady extends cc.Component {
     // onLoad () {}
 
     start () {
-      this._gm = cc.find("GameManager").getComponent("GameManager");
+      if (cc.find("GameManager"))
+        this._gm = cc.find("GameManager").getComponent("GameManager");
       this._charAnimation = this.char.getComponent(cc.Animation);
       this._joiaAnimation = this.joia.getComponent(cc.Animation);
       this._disquete1Animation = this.disquete1.getComponent(cc.Animation);
@@ -77,6 +78,7 @@ export default class GetReady extends cc.Component {
     }
 
     setInfo() {
+      if (!this._gm) return;
       let info = this._gm.getProgressInfo();
       // this.labelScore.string = "Score: "+info.score;
       // this.labelHP.string = "HP: "+info.hp;
@@ -137,7 +139,8 @@ export default class GetReady extends cc.Component {
         if(this._countDown <= 0) {
           this.labelTimerD.string = "0";
           this.labelTimerE.string = "0";
-          this._gm.loadNextLevel();
+          if (this._gm)
+            this._gm.loadNextLevel();
         }
       }
     }
